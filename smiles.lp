@@ -18,7 +18,10 @@ element("O", 8, 2) :- molecular_formula("O", O), O > 0.
 % To allow alternative valence values for an element, add e.g. `element_valence("C",2)`.
 
 % A version of this file without comments and without the INPUT section and the embedded Python code (will require setting `main_chain_len` programmatically) was produced with the following command:
-% $> sed '1,18d; 60,69d; s/[^%].*@min_main_chain_len.*/1{ main_chain_len(MIN_LEN..ATOM_COUNT) }1 :- non_hydrogen_atom_count(ATOM_COUNT), min_main_chain_len(MIN_LEN)./; /^[ \t]*%/d; s/[ \t]*%.*$//; /^[ \t]*# /d' smiles.lp | cat -s > smiles_min.lp
+% $> sed '1,18d; 60,72d; s/[^%].*@min_main_chain_len.*/1{ main_chain_len(MIN_LEN..ATOM_COUNT) }1 :- non_hydrogen_atom_count(ATOM_COUNT), min_main_chain_len(MIN_LEN)./; /^[ \t]*%/d; s/[ \t]*%.*$//; /^[ \t]*# /d' smiles.lp | cat -s > smiles_min.lp
+
+% A version of this file without comments and the embedded Python code, but with the INPUT section and additional `min_main_chain_len(m)` INPUT was produced with the following command:
+% $> sed '60,72d; s/[^%].*@min_main_chain_len.*/1{ main_chain_len(MIN_LEN..ATOM_COUNT) }1 :- non_hydrogen_atom_count(ATOM_COUNT), min_main_chain_len(MIN_LEN)./; /^[ \t]*%/d; s/[ \t]*%.*$//; /^[ \t]*# /d; 7i #const m=0. min_main_chain_len(m) :- m != 0.' smiles.lp | cat -s > smiles_eval.lp
 
 % ---------------------------------------------
 
@@ -126,12 +129,26 @@ cycle_end_count(I, CYCLE_END_COUNT - CYCLE_END_NUM) :- cycle_end_count(I-1, CYCL
 :- cycle_end_count(ATOM_COUNT, _), non_hydrogen_atom_count(ATOM_COUNT).
 
 CYCLE_END_NUM{ cycle_end(I, 1..NUM_CYCLES) }CYCLE_END_NUM :- cycle_end_num(I, CYCLE_END_NUM), num_cycles(NUM_CYCLES).
+% Only pick a single cycle_end per cycle.
 :- cycle_end(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
+% Cycles should involve at least three atoms, as they are otherwise represented via multi-bonds.
 :- cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), parent(I1, _, I2).
+% Cycles startig at the same point should be numbered by cycle-end order.
 :- cycle_start(I, CYCLE_1), cycle_start(I, CYCLE_2), cycle_end(I1, CYCLE_1), cycle_end(I2, CYCLE_2), CYCLE_1 < CYCLE_2, I1 > I2.
+% Cycle start marker should preceed cycle end marker.
+:- cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 >= I2.
 
-% Prohibit interleaving cycles, as they can always be written as outer and inner cycle.
-:- cycle_start(I1, CYCLE_1), cycle_start(I2, CYCLE_2), cycle_end(I3, CYCLE_1), cycle_end(I4, CYCLE_2), I1<I2, I2<I3, I3<I4, CYCLE_1 < CYCLE_2.
+%% Prohibit interleaving cycles, as they can always be written as outer and inner cycle.
+%:- cycle_start(I1, CYCLE_1), cycle_start(I2, CYCLE_2), cycle_end(I3, CYCLE_1), cycle_end(I4, CYCLE_2), I1<I2, I2<I3, I3<I4, CYCLE_1 < CYCLE_2.
+% NOTE: This constraint unfortunately is incompatible with the avoidance of shortening cycles.
+%       E.g. for Cubane (with sumformula C8H8):
+%            -- C₅25C₄4C₃3C₂2C₁1C₆5C₇4C₈13 has interleaving, but no shortening cycles (3 isomorphic models)
+%            -- C₄34C₃2C₂(C₅35)C₁1C₆5C₇4C₈12 has no interleaving, but shortening cycles (2 isomorphic models)
+%       --> For compounds with many cycles, prohibiting interleaving cycles is more important.
+%       E.g. for C10H20 (single cycle)
+%            -- 951 models, disallowing shortening cycles
+%            -- 1833 models, allowing shortening cycles
+%       --> For compounds with few cycles, prohibiting shortening cycles is more important.
 
 % Sum up the per-atom bonds due to cyclicity.
 preset_bonds(I, MULTIPLICITY) :- not cycle_start_num(I, _), not cycle_end_num(I, _), multi_bond(I, MULTIPLICITY).
@@ -237,7 +254,7 @@ depth(2+LEFT_SIZE, ((MAIN_CHAIN_LEN-1)-(MAIN_CHAIN_LEN-1)\2)/2) :- main_chain_le
                                      parent(I, CHAIN+1, POS_2).
 
 % Ensure to reach the pre-selected depth.
-:- not depth(I, 1), not branching(I, _), atom(I).
+:- not depth(I, 1), not branching(I, _), atom(I), I > 1.
 
 % ---------------------------------------------
 
@@ -385,31 +402,29 @@ cycle(CYCLE, I+1, I1, 0, L2) :- chain(I, I1), I < I1, I1-I <= MAX_LEN, max_len(M
 cycle(CYCLE, I1+1, I2, 0, 0) :- chain(I1, I2), I1 < I2, I2-I1 <= MAX_LEN, max_len(MAX_LEN),
                                 cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
 % Determine, which side cycles originate in the root atom.
-cycle(CYCLE, I', I', L1, L2) :- parent(1, CHAIN, I'), CHAIN > 0, 1 < I', max_len(MAX_LEN),
+cycle(CYCLE, I', I', L1, L2) :- parent(1, 1, I'), 1 < I', max_len(MAX_LEN),
                                 path(I', I1, L1), I'+1 < I1, L1 <= MAX_LEN,
                                 path(1, I2, L2), 2 < I2, L2 <= MAX_LEN,
                                 cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
-cycle(CYCLE, I'', I', L1, L2) :- parent(1, CHAIN, I''), CHAIN > 0, 1 < I'', chain(I'', I'), I'' < I', I'-I'' <= MAX_LEN, max_len(MAX_LEN),
+cycle(CYCLE, I'', I', L1, L2) :- parent(1, 1, I''), 1 < I'', chain(I'', I'), I'' < I', I'-I'' <= MAX_LEN, max_len(MAX_LEN),
                                  path(I', I1, L1), I'+1 < I1, L1 <= MAX_LEN,
                                  path(1, I2, L2), 2 < I2, L2 <= MAX_LEN,
                                  cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
 % Determine, which branch cycles originate in the root atom.
-cycle(CYCLE, I1, I1, 0, L2) :- parent(1, CHAIN, I1), CHAIN > 0, 1 < I1, max_len(MAX_LEN),
+cycle(CYCLE, I1, I1, 0, L2) :- parent(1, 1, I1), 1 < I1, max_len(MAX_LEN),
                                path(1, I2, L2), 2 < I2, L2 <= MAX_LEN,
                                cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
-cycle(CYCLE, I'', I1, 0, L2) :- parent(1, CHAIN, I''), CHAIN > 0, 1 < I'', chain(I'', I1), I'' < I1, I1-I'' <= MAX_LEN, max_len(MAX_LEN),
+cycle(CYCLE, I'', I1, 0, L2) :- parent(1, 1, I''), 1 < I'', chain(I'', I1), I'' < I1, I1-I'' <= MAX_LEN, max_len(MAX_LEN),
                                 path(1, I2, L2), 2 < I2, L2 <= MAX_LEN,
                                 cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
-cycle(CYCLE, I', I', L2, 0) :- parent(1, CHAIN, I'), CHAIN > 0, 1 < I', max_len(MAX_LEN),
+cycle(CYCLE, I', I', L2, 0) :- parent(1, 1, I'), 1 < I', max_len(MAX_LEN),
                                path(I', I2, L2), 2 < I2, L2 <= MAX_LEN,
                                cycle_start(1, CYCLE), cycle_end(I2, CYCLE), 1 < I2.
-cycle(CYCLE, I'', I', L2, 0) :- parent(1, CHAIN, I''), CHAIN > 0, 1 < I'', chain(I'', I'), I'' < I', I'-I'' <= MAX_LEN, max_len(MAX_LEN),
+cycle(CYCLE, I'', I', L2, 0) :- parent(1, 1, I''), 1 < I'', chain(I'', I'), I'' < I', I'-I'' <= MAX_LEN, max_len(MAX_LEN),
                                 path(I', I2, L2), 2 < I2, L2 <= MAX_LEN,
                                 cycle_start(1, CYCLE), cycle_end(I2, CYCLE), 1 < I2.
 % Determine, which chain cycles originate in the root atom.
-cycle(CYCLE, I2, I2, 0, 0) :- parent(1, CHAIN, I2), CHAIN > 0, 1 < I2,
-                              cycle_start(1, CYCLE), cycle_end(I2, CYCLE), 1 < I2.
-cycle(CYCLE, I'', I2, 0, 0) :- parent(1, CHAIN, I''), CHAIN > 0, 1 < I'', chain(I'', I2), I'' < I2, I2-I'' <= MAX_LEN, max_len(MAX_LEN),
+cycle(CYCLE, I'', I2, 0, 0) :- parent(1, 1, I''), 1 < I'', chain(I'', I2), I'' < I2, I2-I'' <= MAX_LEN, max_len(MAX_LEN),
                                cycle_start(1, CYCLE), cycle_end(I2, CYCLE), 1 < I2.
 
 %    +-------------------------------------+
@@ -468,6 +483,7 @@ cross_cycle(CYCLE, I1, I2, 0, 0) :- chain(1, I1), 1 < I1, I1-1 <= MAX_LEN, max_l
 % Prohibit cycle between two side chains originating at the same atom.
 :- path(I, I1, L1), I < I1, L1 <= MAX_LEN, max_len(MAX_LEN),
    path(I, I2, L2), I < I2, L2 <= MAX_LEN,
+   not chain(I1, I2),
    cycle_start(I1, CYCLE), cycle_end(I2, CYCLE), I1 < I2.
 
 % Compute side chain depths.
@@ -708,9 +724,18 @@ side_chain(I_BASE, SIDE_DEPTH) :- parent(I_BASE, CHAIN, I_SIDE), CHAIN > 0, (I_B
 :- cross_cycle(CYCLE, I, I', L1, L2), L2 != 0, cycle_start(I1, CYCLE), branching(I1, BRANCHING), (BRANCHING,DEPTH_2) < (2,2), BRANCHING < 3, depth(I, DEPTH), max_len(MAX_LEN), I+DEPTH <=MAX_LEN+1, cycle_end(I2, CYCLE), I <= I1, I1 < I', I' <= I2, I1 < I2, depth(I2, DEPTH_2), DEPTH_2 < DEPTH-L1.
 %                                                                                                                                                             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾                       ‾‾‾‾‾‾‾‾ ‾‾‾‾‾‾‾‾ ‾‾‾‾‾‾‾‾‾ ‾‾‾‾‾‾‾‾
 
-show branching/2.
-show symbol/2.
-show multi_bond/2.
-show cycle_start/2.
-show cycle_end/2.
+%:- not multi_bond(_, _).
+%:- multi_bond(_, _).
+%:- cycle(_, _, _, _, _).
+%:- cross_cycle(_, _, _, _, _).
+%:- not side_chain(_,_).
+%:- side_chain(1,_).
+%:- not cond(0).
 
+%#show cycle/5. % (uncomment, to view cycle classification with smiles-vis.py script)
+
+#show branching/2.
+#show symbol/2.
+#show multi_bond/2.
+#show cycle_start/2.
+#show cycle_end/2.
