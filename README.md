@@ -2,6 +2,39 @@
 
 Evaluation files for an ASP-based tool that enumerates molecule shapes for a given sum fomula
 
+## Usage
+
+To enumerate all molecule structures matching a sum formula of the form $C_qH_rN_sO_t$, use:
+
+```bash
+clingo 0 smiles.lp --const c=q --const h=r --const n=s -const o=t
+```
+
+To convert the models in a more readable SMILES representation, pipe the output into the enclosed visualization script:
+
+```bash
+clingo 0 smiles.lp --const c=q --const h=r --const n=s -const o=t | python smiles-vis.py
+```
+
+See `python smiles-vis.py --help` for further options.
+
+### Examples
+
+```bash
+# C7H16, acyclic
+clingo 0 smiles.lp --const c=7 --const h=16 | python smiles-vis.py -c
+# C7H14, 1 cycle
+clingo 0 smiles.lp --const c=7 --const h=14 | python smiles-vis.py -c
+```
+
+To check which of the emmitted structures are isomorphic, use e.g.:
+
+```bash
+clingo 0 smiles.lp smiles-to-edge.lp --const c=7 --const h=14 | python smiles-vis.py -c
+```
+
+(Note that this is only feasible for relatively small model counts.)
+
 ## Preparation
 
 For the correctness validation and the symmetry-breaking evaluation,
