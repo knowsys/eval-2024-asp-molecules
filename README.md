@@ -59,6 +59,15 @@ docker pull $GENMOL_IMAGE
 GENMOL="docker run $GENMOL_IMAGE"
 ```
 
+You can also use the tool to translate a given sumformula into a factbase.
+This enables enumeration of molecules containing any main-group element, e.g.:
+
+```bash
+clingo 0 smiles.lp <($GENMOL to-factbase -f Si2C5H14) | python smiles-vis.py -c
+```
+
+See `$GENMOL --help` for a full list of supported options.
+
 ## Correctness validation
 
 ```bash
