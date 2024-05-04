@@ -1,10 +1,10 @@
-from subprocess import run, TimeoutExpired, DEVNULL
+from subprocess import run, TimeoutExpired, DEVNULL, call
 from typing import List, Dict, Union, Tuple
 
 from dataclasses import dataclass, field
 from dataclasses_json import dataclass_json
 from os.path import isfile, exists
-from os import makedirs
+from os import makedirs, environ
 from sys import stderr
 
 import argparse
@@ -18,16 +18,17 @@ from matplotlib.ticker import FuncFormatter
 path = "sb-results.json"
 diagram_path = "diagrams"
 
-PROG_SMILES = "smiles_min.lp"
-CHEMDATA = "../../../chemdata-sort.csv"
-GENMOL = "../../../target/x86_64-unknown-linux-gnu/release/genmol"
-#CHEMDATA = "../chemdata-sort.csv"
-#GENMOL = "LD_LIBRARY_PATH=/nix/store/a3zlvnswi1p8cg7i9w4lpnvaankc7dxx-gcc-12.3.0-lib/lib/:/nix/store/2n7vw6bfc8lbfhzlcahdzacp23si4rxc-openssl-1.1.1q/lib/:$LD_LIBRARY_PATH ../genmol"
+PROG_SMILES = environ.get('PROG_SMILES', "smiles_min.lp")
+CHEMDATA = environ.get('CHEMDATA', "chemdata-sort.csv")
+GENMOL = environ.get('GENMOL', "./genmol")
+
+if not isfile(PROG_SMILES):
+    call(['bash', './prepare-asp-programs.sh'])
 
 num_threads = 2
 timeout = 60 # in seconds
 
-record_count = 3000 # total number of datapoints to collect
+record_count = 2000 # total number of datapoints to collect
 min_num_models = 0
 
 _DEBUG: bool = False

@@ -1,10 +1,10 @@
-from subprocess import run, TimeoutExpired
+from subprocess import run, TimeoutExpired, call
 from typing import List, Dict, Union, Tuple
 
 from dataclasses import dataclass, field
 from dataclasses_json import dataclass_json
 from os.path import isfile, exists
-from os import makedirs
+from os import makedirs, environ
 from sys import stderr
 
 import argparse
@@ -16,11 +16,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statistics import median
 
-#PROG_NAIVE = "../canonical-graph/graph.lp"
-#PROG_CANONICAL = "../canonical-graph/canonical.lp"
-PROG_NAIVE = "graph.lp"
-PROG_CANONICAL = "canonical.lp"
-PROG_SMILES = "smiles_eval.lp"
+PROG_NAIVE = environ.get('PROG_NAIVE', "graph.lp")
+PROG_CANONICAL = environ.get('PROG_CANONICAL', "canonical.lp")
+PROG_SMILES = environ.get('PROG_SMILES', "smiles_eval.lp")
+
+if not isfile(PROG_SMILES):
+    call(['bash', './prepare-asp-programs.sh'])
 
 num_threads = 2
 timeout = 60 # in seconds
