@@ -23,7 +23,6 @@
         ];
 
         shellHook = ''
-          alias piclasp="python2.7 $PWD/piclasp-1.2.1-x86_64-linux/piclasp.py";
           alias breakID="$PWD/BreakID-2.5";
           alias python="python3";
           alias molgen="wine $PWD/molgen50/mgen.exe";

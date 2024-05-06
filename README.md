@@ -68,6 +68,24 @@ clingo 0 smiles.lp <($GENMOL to-factbase -f Si2C5H14) | python smiles-vis.py -c
 
 See `$GENMOL --help` for a full list of supported options.
 
+For the performance and the symmetry-breaking evaluation,
+the automated symmetry-breaking tool __BreakID__ and the commercial
+mass spectrometry tool __Molgen__ are needed:
+
+```bash
+curl -O https://bitbucket.org/krr/breakid/downloads/BreakID-2.5
+curl -O https://www.molgen.de/download/molgen50-windows-demo-max-60seconds.zip
+unzip molgen50-windows-demo-max-60seconds.zip
+```
+
+In case you are on a NixOS system, simply run `nix develop`.
+Otherwise, install the Nix package manager and use it like so:
+
+```bash
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+nix develop --extra-experimental-features nix-command
+```
+
 ## Correctness validation
 
 To assess the correctness of our encoding, the validation performs esperiments
