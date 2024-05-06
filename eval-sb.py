@@ -28,7 +28,7 @@ if not isfile(PROG_SMILES):
 num_threads = 2
 timeout = 60 # in seconds
 
-record_count = 2000 # total number of datapoints to collect
+record_count = 2500 # total number of datapoints to collect
 min_num_models = 0
 
 _DEBUG: bool = False
@@ -113,7 +113,7 @@ def evaluate_num_models(records: int, result_set: NOMResultSet = NOMResultSet())
             if i == 0:
                 i += 1
                 continue
-            if i == records+1:
+            if i >= records+1:
                 break
             sumformula = line.split(",")[0].translate(SUB)
             if recovery is not None:

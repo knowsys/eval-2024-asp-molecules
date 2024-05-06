@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[ -z "$PROG_SMILES" ] || cd $(dirname $PROG_SMILES)
+
 # smiles.lp
 sed '1,18d; 60,72d; s/[^%].*@min_main_chain_len.*/1{ main_chain_len(MIN_LEN..ATOM_COUNT) }1 :- non_hydrogen_atom_count(ATOM_COUNT), min_main_chain_len(MIN_LEN)./; /^[ \t]*%/d; s/[ \t]*%.*$//; /^[ \t]*# /d' smiles.lp | cat -s > smiles_min.lp
 sed '60,72d; s/[^%].*@min_main_chain_len.*/1{ main_chain_len(MIN_LEN..ATOM_COUNT) }1 :- non_hydrogen_atom_count(ATOM_COUNT), min_main_chain_len(MIN_LEN)./; /^[ \t]*%/d; s/[ \t]*%.*$//; /^[ \t]*# /d; 7i #const m=0. min_main_chain_len(m) :- m != 0.' smiles.lp | cat -s > smiles_eval.lp

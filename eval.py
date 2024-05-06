@@ -16,9 +16,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statistics import median
 
-PROG_NAIVE = environ.get('PROG_NAIVE', "graph.lp")
-PROG_CANONICAL = environ.get('PROG_CANONICAL', "canonical.lp")
-PROG_SMILES = environ.get('PROG_SMILES', "smiles_eval.lp")
+PROG_NAIVE = environ.get('PROG_NAIVE', "canonical-graph/graph.lp")
+PROG_CANONICAL = environ.get('PROG_CANONICAL', "canonical-graph/canonical.lp")
+PROG_SMILES = environ.get('PROG_SMILES_EVAL', "smiles_eval.lp")
 
 if not isfile(PROG_SMILES):
     call(['bash', './prepare-asp-programs.sh'])

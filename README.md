@@ -49,12 +49,12 @@ carbo build -r
 GENMOL=./tool//target/x86_64-unknown-linux-gnu/release/genmol
 ```
 
-(Refer to the tool's [README](todo) for further details.)
+(Refer to the tool's [README](https://gitlab.com/nkuechen/genmol) for further details.)
 
 To use the pre-built Docker image:
 
 ```bash
-GENMOL_IMAGE="todo"
+GENMOL_IMAGE="registry.gitlab.com/nkuechen/genmol:latest"
 docker pull $GENMOL_IMAGE
 GENMOL="docker run $GENMOL_IMAGE"
 ```
