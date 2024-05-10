@@ -1,6 +1,6 @@
 # eval-2024-asp-molecules
 
-Evaluation files for an ASP-based tool that enumerates molecule shapes for a given sum fomula
+Evaluation files for an ASP-based tool that enumerates molecule shapes for a given sum formula
 
 ## Usage
 
@@ -27,7 +27,7 @@ clingo 0 smiles.lp --const c=7 --const h=16 | python smiles-vis.py -c
 clingo 0 smiles.lp --const c=7 --const h=14 | python smiles-vis.py -c
 ```
 
-To check which of the emmitted structures are isomorphic, use e.g.:
+To check which of the emitted structures are isomorphic, use e.g.:
 
 ```bash
 clingo 0 smiles.lp smiles-to-edge.lp --const c=7 --const h=14 | python smiles-vis.py -c
@@ -41,12 +41,12 @@ For the correctness validation and the symmetry-breaking evaluation,
 the Rust-based interface program is needed.
 You can either build it locally or use the Docker image.
 
-To build locally - ommitting the Yew frontend as it is not needed for the experiments, run the following commands:
+To build locally - omitting the Yew frontend as it is not needed for the experiments, run the following commands:
 
 ```bash
 git submodule update --init
 carbo build -r
-GENMOL=./tool//target/x86_64-unknown-linux-gnu/release/genmol
+export GENMOL=./tool//target/x86_64-unknown-linux-gnu/release/genmol
 ```
 
 (Refer to the tool's [README](https://gitlab.com/nkuechen/genmol) for further details.)
@@ -56,7 +56,7 @@ To use the pre-built Docker image:
 ```bash
 GENMOL_IMAGE="registry.gitlab.com/nkuechen/genmol:latest"
 docker pull $GENMOL_IMAGE
-GENMOL="docker run $GENMOL_IMAGE"
+export GENMOL="docker run -v $(pwd)/chemdata-sort.csv:/chemdata-sort.csv $GENMOL_IMAGE"
 ```
 
 You can also use the tool to translate a given sumformula into a factbase.
@@ -88,7 +88,7 @@ nix develop --extra-experimental-features nix-command
 
 ## Correctness validation
 
-To assess the correctness of our encoding, the validation performs esperiments
+To assess the correctness of our encoding, the validation performs experiments
 to see, whether relevant molecules collected from Wikidata can be found
 with `smiles.lp` given their sum formula.
 It also reports the number of isomorphic models per compound.
@@ -130,7 +130,7 @@ WHERE
 
 This dataset consists of all chemical compounds on Wikidata, which are associated with
 a SMILES and InChi, as well as a sum formula. To restrict to - in some sense - relevant
-compounds, we only consider compounds having a matching article in english Wikipedia.
+compounds, we only consider compounds having a matching article in English Wikipedia.
 The `chemdata-sort.py` script sorts the dataset by atom count.
 
 ## Performance evaluation
@@ -162,7 +162,7 @@ See ``python eval.py --help` for further options.
 
 ## Symmetry-breaking evaluation
 
-We compare the number of models our encoding finds agaisnst the number of structures reported by __Molgen__,
+We compare the number of models our encoding finds against the number of structures reported by __Molgen__,
 for real-world sum formulae collected from Wikidata (see `chemdata-sort.csv`).
 
 This will produce a `sb-results.json` data file as well as `diagrams/diagram_number_of_models-comparison.pdf`.
