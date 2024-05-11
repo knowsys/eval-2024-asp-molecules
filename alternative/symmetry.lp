@@ -1,4 +1,7 @@
-% Symmetry breaking
+% Symmetry breaking based on 
+%
+% Codish, M., Miller, A., Prosser, P., & Stuckey, P. J. 
+% Constraints for symmetry breaking in graph representation (2014). 
 
 sat(I, K, J) :- 
     type(I, T), type(J, T), type(K, T), type(L, T), J > I, J - I != 2,
@@ -10,4 +13,3 @@ sat(I, K, J) :-
 :- type(I, T), type(J, T), type(K, T), 
    edge(I, K), node(J), J > I, not sat(I, K, J), J - I != 2, K != J.
 
-%#show sat/3.

@@ -16,8 +16,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statistics import median
 
-PROG_NAIVE = environ.get('PROG_NAIVE', "canonical-graph/graph.lp")
-PROG_CANONICAL = environ.get('PROG_CANONICAL', "canonical-graph/canonical.lp")
+PROG_NAIVE = environ.get('PROG_NAIVE', "alternative/naive.lp")
+PROG_CANONICAL = environ.get('PROG_CANONICAL', "alternative/symmetry.lp")
 PROG_SMILES = environ.get('PROG_SMILES_EVAL', "smiles_eval.lp")
 
 if not isfile(PROG_SMILES):
