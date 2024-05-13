@@ -21,7 +21,7 @@ element("O", 8, 2) :- molecular_formula("O", O), O > 0.
 % Construct an undirected graph,
 % which represents the molecule
 
-node(1..V) :- V = #sum { C : molecular_formula(E, C), E != "H" }.
+node(1..V) :- V = #sum { C, E : molecular_formula(E, C), E != "H" }.
 
 { edge(X, Y) : node(X), node(Y), X < Y }.
 edge(Y, X) :- edge(X, Y).

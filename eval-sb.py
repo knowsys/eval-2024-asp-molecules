@@ -13,11 +13,12 @@ from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=2)
 
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
 
 path = "sb-results.json"
 diagram_path = "diagrams"
 
+PROG_NAIVE = environ.get('PROG_NAIVE', "alternative/naive.lp")
+PROG_CANONICAL = environ.get('PROG_CANONICAL', "alternative/symmetry.lp")
 PROG_SMILES = environ.get('PROG_SMILES', "smiles_min.lp")
 CHEMDATA = environ.get('CHEMDATA', "chemdata-sort.csv")
 GENMOL = environ.get('GENMOL', "./genmol")
@@ -40,6 +41,8 @@ class NOMResultSet:
     formula: List[str] = field(default_factory=lambda: [])
     molgen_num_models: List[Union[int, None]] = field(default_factory=lambda: [])
     smiles_num_models: List[Union[int, None]] = field(default_factory=lambda: [])
+    canonical_num_models: List[Union[int, None]] = field(default_factory=lambda: [])
+    breakid_num_models: List[Union[int, None]] = field(default_factory=lambda: [])
 
 
 def to_num(txt: List[str], idx: int, f) -> Union[int, float, None]:
@@ -102,6 +105,38 @@ def measure_num_models_molgen(formula: str) -> Union[int, None]:
         return None
 
 
+def measure_num_models_canonical(formula: str) -> Union[int, None]:
+    try:
+        numbers = run((cmd := ["bash", "-c", f"clingo 0 --quiet=2,0,2 -t {num_threads} {PROG_NAIVE} {PROG_CANONICAL} <({GENMOL} to-factbase -f {formula}) \
+                    | grep -oP ':.*|^\d+$' \
+                    | grep -oP '[0-9]+(\.[0-9]*)?'"]), capture_output=True, text=True, timeout=timeout).stdout.splitlines()
+        print_cmd(cmd, numbers)
+
+        num_models = to_num(numbers, 0, int)
+        return num_models
+    except TimeoutExpired:
+        return None
+
+
+def measure_num_models_breakid(formula: str) -> Union[int, None]:
+    try:
+        output = run((cmd := ["bash", "-O", "expand_aliases", "-c", f"[ -f .bash_aliases ] && source .bash_aliases\n \
+                    gringo {PROG_NAIVE} <({GENMOL} to-factbase -f {formula}) -o smodels \
+                    | breakID -asp \
+                    | tail -n +2 \
+                    | cat - <(echo '0') \
+                    | clasp 0 --project=show --quiet=2,0,2 -t {num_threads} \
+                    | grep -oP ':.*|^\d+$' \
+                    | grep -oP '[0-9]+(\.[0-9]*)?'"]), capture_output=True, text=True, timeout=timeout)
+        numbers = output.stdout.splitlines()
+        print_cmd(cmd, numbers)
+
+        num_models = to_num(numbers, 0, int)
+        return num_models
+    except TimeoutExpired:
+        return None
+
+
 def evaluate_num_models(records: int, result_set: NOMResultSet = NOMResultSet()) -> NOMResultSet:
     with open(CHEMDATA, "r") as chemdata:
         SUB = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
@@ -126,38 +161,52 @@ def evaluate_num_models(records: int, result_set: NOMResultSet = NOMResultSet())
                 if molgen_num_models is not None:
                     smiles_num_models = measure_num_models_smiles(sumformula)
                     if smiles_num_models is not None:
+                        canonical_num_models = measure_num_models_canonical(sumformula)
+                        breakid_num_models = measure_num_models_breakid(sumformula)
                         result_set.formula.append(sumformula)
                         result_set.molgen_num_models.append(molgen_num_models)
                         result_set.smiles_num_models.append(smiles_num_models)
-                        print(f"{i},{sumformula},{molgen_num_models},{smiles_num_models}")
+                        result_set.canonical_num_models.append(canonical_num_models)
+                        result_set.breakid_num_models.append(breakid_num_models)
+                        print(f"{i},{sumformula},{molgen_num_models},{smiles_num_models},{canonical_num_models},{breakid_num_models}")
                         if molgen_num_models > min_num_models and smiles_num_models > min_num_models:
                             i += 1
 
     return result_set
 
 
-def diagram(filename: str, label: str, data: List[Tuple[int, int]]):
+def diagram(filename: str, label: str, data: List[Tuple[int, int, int, int]], legend: Tuple[str, str, str, str]):
     plt.rcParams["figure.figsize"] = [8.00, 3.50]
     plt.rcParams["font.family"] = "Times New Roman"
     plt.rcParams["mathtext.fontset"] = "cm"
-    plt.rcParams['font.size'] = 10
+    plt.rcParams['font.size'] = 12
+    prop_cycle_colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
     fig, ax = plt.subplots()
 
     plt.scatter(range(len(data)), list(map(lambda x: x[0], data)), s=2)
     plt.scatter(range(len(data)), list(map(lambda x: x[1], data)), s=2)
+    plt.scatter(range(len(data)), list(map(lambda x: x[2], data)), s=2)
+    plt.scatter(range(len(data)), list(map(lambda x: x[3], data)), s=2)
+
+    plt.scatter([], [], s=70, label=legend[0], color=prop_cycle_colors[0])
+    plt.scatter([], [], s=70, label=legend[1], color=prop_cycle_colors[1])
+    plt.scatter([], [], s=70, label=legend[2], color=prop_cycle_colors[2])
+    plt.scatter([], [], s=70, label=legend[3], color=prop_cycle_colors[3])
 
     ax.set_yscale('log')
     ax.set_ylim(auto=True)
     ax.set_ylabel(label)
     ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_major_formatter(FuncFormatter(lambda x, p: format(int(x), ',')))
+    plt.yticks(fontsize=10)
+    ax.legend(loc='upper left', ncols=len(legend), labelspacing=0.5)
 
     # save the figure in PDF format and close it
     if not exists(diagram_path):
         makedirs(diagram_path)
 
     plt.savefig(f"{diagram_path}/diagram_{filename}.pdf")
+    plt.savefig(f"{diagram_path}/diagram_{filename}.svg")
     plt.close(fig)
 
 
@@ -198,19 +247,78 @@ if __name__ == "__main__":
                 print("Recovery...", file=stderr)
                 result_set = NOMResultSet()
                 i = 1
+                canonical_done = []
+                breakid_done = []
                 for line in fp.readlines():
                     parts = line.split(",")
-                    if len(parts) == 4:
+                    if len(parts) >= 4:
                         if int(parts[0]) != i:
                             print(f"Warning: record {i} is missing...", file=stderr)
-                        result_set.formula.append(parts[1])
+                        sumformula = parts[1]
+                        result_set.formula.append(sumformula)
                         molgen = int(parts[2])
                         smiles = int(parts[3])
+                        canonical = int(parts[4]) if len(parts) > 4 else None
+                        breakid = int(parts[5]) if len(parts) > 5 else None
                         result_set.molgen_num_models.append(molgen)
                         result_set.smiles_num_models.append(smiles)
+                        result_set.canonical_num_models.append(canonical)
+                        result_set.breakid_num_models.append(breakid)
                         if molgen > min_num_models and smiles > min_num_models:
                             i += 1
-                print(pp.pformat(result_set), file=stderr)
+                    elif len(parts) == 3 and parts[0] == "canonical":
+                        canonical_done.append(sumformula)
+                        sumformula = parts[1]
+                        canonical = int(parts[2]) if not parts[2].startswith("None") else None
+                        for idx, s in enumerate(result_set.formula):
+                            if s == sumformula:
+                                result_set.canonical_num_models[idx] = canonical
+                    elif len(parts) == 3 and parts[0] == "breakid":
+                        breakid_done.append(sumformula)
+                        sumformula = parts[1]
+                        breakid = int(parts[2]) if not parts[2].startswith("None") else None
+                        for idx, s in enumerate(result_set.formula):
+                            if s == sumformula:
+                                result_set.breakid_num_models[idx] = breakid
+                i = 1
+                missing = []
+                for j in range(len(result_set.formula)):
+                    sumformula = result_set.formula[j]
+                    molgen = result_set.molgen_num_models[j]
+                    smiles = result_set.smiles_num_models[j]
+                    canonical = result_set.canonical_num_models[j]
+                    breakid = result_set.breakid_num_models[j]
+                    if molgen > min_num_models and smiles > min_num_models:
+                        if ((canonical is None and sumformula not in canonical_done) or (breakid is None and sumformula not in breakid_done)) and i < record_count+1:
+                            missing.append((molgen,smiles,canonical,breakid,j,sumformula))
+                        i += 1
+                for molgen, smiles, canonical, breakid, j, sumformula in sorted(missing):
+                    if canonical is None and sumformula not in canonical_done:
+                        canonical = measure_num_models_canonical(sumformula)
+                        print(f"canonical,{sumformula},{canonical}")
+                        for idx, s in enumerate(result_set.formula):
+                            if s == sumformula:
+                                result_set.canonical_num_models[idx] = canonical
+                    if breakid is None and sumformula not in breakid_done:
+                        breakid = measure_num_models_breakid(sumformula)
+                        print(f"breakid,{sumformula},{breakid}")
+                        for idx, s in enumerate(result_set.formula):
+                            if s == sumformula:
+                                result_set.breakid_num_models[idx] = breakid
+                j = 0
+                i = 1
+                for molgen, smiles, sumformula in zip(result_set.molgen_num_models, result_set.smiles_num_models, result_set.formula):
+                    j += 1
+                    if molgen > min_num_models and smiles > min_num_models:
+                        i += 1
+                        if i > record_count:
+                            break
+                del result_set.formula[j:]
+                del result_set.molgen_num_models[j:]
+                del result_set.smiles_num_models[j:]
+                del result_set.canonical_num_models[j:]
+                del result_set.breakid_num_models[j:]
+                #print(pp.pformat(result_set), file=stderr)
             result_set = evaluate_num_models(records=record_count, result_set=result_set)
         else:
             result_set = evaluate_num_models(records=record_count)
@@ -218,17 +326,17 @@ if __name__ == "__main__":
             fp.write(result_set.to_json())
 
     if args.print_results:
-        #print(pp.pformat({ result_set.formula[i]: (result_set.molgen_num_models[i], result_set.smiles_num_models[i]) for i in range(len(result_set.formula))}), file=stderr)
         print(pp.pformat(sorted(zip(result_set.formula, result_set.molgen_num_models, result_set.smiles_num_models), key=lambda x: x[1]-x[2])), file=stderr)
 
     if args.render_diagrams:
         # lexicographic sort --> 1st sort by molgen, 2nd sort by smiles
-        data = sorted(zip(result_set.molgen_num_models, result_set.smiles_num_models))
+        data = sorted(zip(result_set.molgen_num_models, result_set.smiles_num_models, result_set.canonical_num_models, result_set.breakid_num_models), \
+            key=lambda x: (x[0], x[1], x[2] if x[2] is not None else 0, x[3] if x[3] is not None else 0))
         # check how many are equal at the start
         equal_up_to = 0
         last_equal_up_to = 0
         equal_count = 0
-        for molgen, smiles in data:
+        for molgen, smiles, canonical, breakid in data:
             if molgen != smiles:
                 break
             equal_count += 1
@@ -237,7 +345,7 @@ if __name__ == "__main__":
             last_equal_up_to = molgen
         print(f"Equal up to {equal_up_to} ({equal_count} records) !!!", file=stderr)
         print(f"Have {len(data)} data points...", file=stderr)
-        data = [(m, s) for (m, s) in data if m > min_num_models and s > min_num_models]
+        data = [(m, s, c, b) for (m, s, c, b) in data if m > min_num_models and s > min_num_models]
         print(f"Filter for records with at least {min_num_models} models... Have {len(data)} data points...", file=stderr)
         print(data, file=stderr)
-        diagram("number_of_models-comparison", "Number of models", data)
+        diagram("number_of_models-comparison", "Number of models", data, ("Molgen", "Our encoding", "Canonical", "BreakID"))

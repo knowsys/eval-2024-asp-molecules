@@ -17,6 +17,7 @@ clingo 0 smiles.lp --const c=q --const h=r --const n=s -const o=t | python smile
 ```
 
 See `python smiles-vis.py --help` for further options.
+To use other elements in the sumformulas, the Rust interface program is needed. (Please see instructions below.)
 
 ### Examples
 
@@ -136,7 +137,7 @@ The `chemdata-sort.py` script sorts the dataset by atom count.
 ## Performance evaluation
 
 We evaluate the performance of our encoding against a naive graph-based encoding,
-symmetry-breaking via caninical graphs, automated symmetry-breaking using __BreakID__,
+symmetry-breaking via canonical graphs, automated symmetry-breaking using __BreakID__,
 and the pre-existing commercial tool __Molgen__,
 w.r.t. ground program size, total runtime, and number of models.
 
@@ -162,7 +163,9 @@ See ``python eval.py --help` for further options.
 
 ## Symmetry-breaking evaluation
 
-We compare the number of models our encoding finds against the number of structures reported by __Molgen__,
+We compare the number of models our encoding,
+as well as the naive encoding with symmetry-breaking via canonical graphs and with __BreakID__,
+finds against the number of structures reported by __Molgen__,
 for real-world sum formulae collected from Wikidata (see `chemdata-sort.csv`).
 
 This will produce a `sb-results.json` data file as well as `diagrams/diagram_number_of_models-comparison.pdf`.

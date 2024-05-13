@@ -254,7 +254,7 @@ def diagram(filename: str, title: str, label: str, data: Dict[str, List[Tuple[Li
     plt.rcParams["figure.figsize"] = [8.00, 3.50]
     plt.rcParams["font.family"] = "Times New Roman"
     plt.rcParams["mathtext.fontset"] = "cm"
-    plt.rcParams['font.size'] = 10
+    plt.rcParams['font.size'] = 17
     prop_cycle_colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
     fig, ax = plt.subplots()
@@ -300,8 +300,12 @@ def diagram(filename: str, title: str, label: str, data: Dict[str, List[Tuple[Li
             if not all(map(lambda x: x==0, measurement)):
                 stack_color_association[j].append(facecolor)
 
+    box = ax.get_position()
+    ax.set_position([box.x0 - box.width * 0.05, box.y0 + box.height * 0.3,
+                    box.width * 1.1, box.height * 0.75])
+
     # legend
-    legend1 = ax.legend(loc='upper left', ncols=len(data.keys()))
+    legend1 = ax.legend(loc='upper left', ncols=len(data.keys()), bbox_to_anchor=(-0.1, -0.1))
 
     num_stack_labels = 0
     for j, stack_label in enumerate(stack_labels):
@@ -319,7 +323,7 @@ def diagram(filename: str, title: str, label: str, data: Dict[str, List[Tuple[Li
     if num_stack_labels > 0:
         handles, labels = plt.gca().get_legend_handles_labels()
         ax.legend(handles[-num_stack_labels:], labels[-num_stack_labels:],
-            loc='upper left', ncols=num_stack_labels, bbox_to_anchor=(0,0,0,0.9))
+            loc='upper left', ncols=num_stack_labels, bbox_to_anchor=(-0.1,-0.35))
     plt.gca().add_artist(legend1)
 
     # y axis logarithmic
@@ -327,6 +331,8 @@ def diagram(filename: str, title: str, label: str, data: Dict[str, List[Tuple[Li
     ax.set_ylim(auto=True)
     ax.set_ylabel(label)
     #ax.yaxis.grid(True)
+    plt.xticks(fontsize=10)
+    plt.yticks(fontsize=10)
 
     # x axis ticks
     max_x = max((len(l[0][0]) for l in data.values()))
@@ -340,6 +346,7 @@ def diagram(filename: str, title: str, label: str, data: Dict[str, List[Tuple[Li
         makedirs(diagram_path)
 
     plt.savefig(f"{diagram_path}/diagram_{'-'.join(f'{filename}_{label}'.split()).lower()}_log.pdf")
+    plt.savefig(f"{diagram_path}/diagram_{'-'.join(f'{filename}_{label}'.split()).lower()}_log.svg")
     plt.close(fig)
 
 
