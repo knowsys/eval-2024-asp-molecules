@@ -72,7 +72,7 @@ To check whether the ASP program - given the sumformula - can find a model isomo
 you can call it like:
 
 ```bash
-clingo 0 smiles.lp smiles-to-edge.lp smiles-check.lp <($GENMOL to-factbase -f C3H5ClO -s 'CC(=O)CCl') | python smiles-vis.py -c
+clingo 0 smiles.lp smiles-to-edge.lp smiles-check.lp <($GENMOL to-factbase -f C3H5ClO -s 'CC(=O)CCl') --project=show | python smiles-vis.py -c
 ```
 
 See `$GENMOL --help` for a full list of supported options.
