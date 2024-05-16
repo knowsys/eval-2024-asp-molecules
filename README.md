@@ -45,9 +45,10 @@ You can either build it locally or use the Docker image.
 To build locally - omitting the Yew frontend as it is not needed for the experiments, run the following commands:
 
 ```bash
-git submodule update --init
+git clone https://gitlab.com/nkuechen/genmol.git
+cd genmol && mkdir frontend/dist
 carbo build -r
-export GENMOL=./tool//target/x86_64-unknown-linux-gnu/release/genmol
+cd .. && export GENMOL=./genmol/target/x86_64-unknown-linux-gnu/release/genmol
 ```
 
 (Refer to the tool's [README](https://gitlab.com/nkuechen/genmol) for further details.)
@@ -65,6 +66,13 @@ This enables enumeration of molecules containing any main-group element, e.g.:
 
 ```bash
 clingo 0 smiles.lp <($GENMOL to-factbase -f Si2C5H14) | python smiles-vis.py -c
+```
+
+To check whether the ASP program - given the sumformula - can find a model isomorphic to a specific structure,
+you can call it like:
+
+```bash
+clingo 0 smiles.lp smiles-to-edge.lp smiles-check.lp <($GENMOL to-factbase -f C3H5ClO -s 'CC(=O)CCl') | python smiles-vis.py -c
 ```
 
 See `$GENMOL --help` for a full list of supported options.
