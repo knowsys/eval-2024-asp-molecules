@@ -51,7 +51,8 @@ carbo build -r
 cd .. && export GENMOL=./genmol/target/x86_64-unknown-linux-gnu/release/genmol
 ```
 
-(Refer to the tool's [README](https://gitlab.com/nkuechen/genmol) for further details.)
+(Refer to the tool's [README](https://gitlab.com/nkuechen/genmol) for further details.
+You can also test the online demo at <https://tools.iccl.inf.tu-dresden.de/genmol/>.)
 
 To use the pre-built Docker image:
 
