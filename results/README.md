@@ -26,7 +26,7 @@ the grounding of <span style="font-variant:small-caps;">Naive</span>. Conceptual
 For <span style="font-variant:small-caps;">Graph</span>, we adapt Definition 12 of [[1]](#references), which applies to partitioned simple graphs $G$
 that are represented by their adjacency matrix $\mathcal{A}_G$:
 
-$\begin{align}\text{sb}(G) = \bigwedge_{e \in \mathbb{E}}\; \bigwedge_{\substack{\ell(i) = \ell(j) = e, \\i < j,\, j - i \neq 2}} \mathcal{A}_G[i] \preceq_{\{i, j\}} \mathcal{A}_G[j].\tag{1}\end{align}$
+$\text{sb}(G) = \bigwedge_{e \in \mathbb{E}}\; \bigwedge_{\substack{\ell(i) = \ell(j) = e, \\i < j,\, j - i \neq 2}} \mathcal{A}_G[i] \preceq_{\{i, j\}} \mathcal{A}_G[j].\tag{1}$
 
 Here, $\preceq_{\{i, j\}}$ denotes the lexicographic order
 comparing the $i$th and $j$th row of the adjacency matrix $\mathcal{A}_G$
