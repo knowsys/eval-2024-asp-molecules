@@ -23,12 +23,10 @@ and <span style="font-variant:small-caps;">BreakID</span> is the system by [[2]]
 which adds symmetry-breaking constraints automatically to
 the grounding of <span style="font-variant:small-caps;">Naive</span>. Conceptually, <span style="font-variant:small-caps;">BreakID</span> is based on symmetry breaking for SAT [[3]](#references).
 
-For <span style="font-variant:small-caps;">Graph</span>, we adapt Definition~12 of [[1]](#references), which applies to partitioned simple graphs $G$
+For <span style="font-variant:small-caps;">Graph</span>, we adapt Definition 12 of [[1]](#references), which applies to partitioned simple graphs $G$
 that are represented by their adjacency matrix $\mathcal{A}_G$:
 
-$\begin{align}
-    \text{sb}(G) = \bigwedge_{e \in \mathbb{E}}\; \bigwedge_{\substack{\ell(i) = \ell(j) = e, \\i < j,\, j - i \neq 2}} \mathcal{A}_G[i] \preceq_{\{i, j\}} \mathcal{A}_G[j].\tag{1}
-\end{align}$
+$\begin{align}\text{sb}(G) = \bigwedge_{e \in \mathbb{E}}\; \bigwedge_{\substack{\ell(i) = \ell(j) = e, \\i < j,\, j - i \neq 2}} \mathcal{A}_G[i] \preceq_{\{i, j\}} \mathcal{A}_G[j].\tag{1}\end{align}$
 
 Here, $\preceq_{\{i, j\}}$ denotes the lexicographic order
 comparing the $i$th and $j$th row of the adjacency matrix $\mathcal{A}_G$
@@ -97,7 +95,7 @@ difference between the number of solutions and the optimum vary significantly. I
  <span style="font-variant:small-caps;">BreakID</span> rarely improves over <span style="font-variant:small-caps;">Naive</span> (just 24 such cases exist), though it does cause one third more timeouts.
 
 For <span style="font-variant:small-caps;">Naive</span>, some samples led to over 20,000 times more models than <span style="font-variant:small-caps;">Molgen</span>, whereas the largest
-such factor was just above $39$ for <span style="font-variant:small-caps;">Genmol</span> (for $\mathit{C}_8\mathit{H}_2$).
+such factor was just above $39$ for <span style="font-variant:small-caps;">Genmol</span> (for $C_8H_2$).
 Figure 1 (right) shows the ratio of samples with model counts
 within a certain factor of the gold standard. For example, the values at $10$ show the ratios of samples for
 which at most ten times as many models were computed than in <span style="font-variant:small-caps;">Molgen</span>: this is $99\%$ for <span style="font-variant:small-caps;">Genmol</span>,
@@ -116,9 +114,9 @@ to remove remaining redundancies in a post-processing step.
 To assess the runtime of our approach, we conduct experiments with
 series of uniformly created molecular formulas of increasing size.
 We consider two patterns:
-formulas of the form $\mathit{C}_n\mathit{H}_{2n+2}O$ belong to tree-shaped
+formulas of the form $C_nH_{2n+2}O$ belong to tree-shaped
 molecules (such as ethanol with SMILES `OCC`), whereas
-formulas of the form $\mathit{C}_n\mathit{H}_{2n}O$ require one cycle
+formulas of the form $C_nH_{2n}O$ require one cycle
 (like oxetane, `C1COC1`) or double bond (like acetone, `CC(=O)C`).
 We use a timeout of 10min for all tools except <span style="font-variant:small-caps;">Molgen</span>, whose free version
 is limited to 1min runtime. All runs are repeated five times and the median is reported.
