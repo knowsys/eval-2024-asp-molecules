@@ -23,6 +23,7 @@
         ];
 
         shellHook = ''
+          alias sbass="$PWD/learning/Symmetry_Breaking_with_ILP/src/SBASS/sbass"
           alias breakID="$PWD/BreakID-2.5";
           alias python="python3";
           alias molgen="wine $PWD/molgen50/mgen.exe";

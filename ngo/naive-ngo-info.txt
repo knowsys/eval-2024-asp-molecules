@@ -1,0 +1,5 @@
+INFO:ngo.cleanup:Remove node(N) from rule, as it is superseeded by degree(N,D).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H_COUNT/2 + VALENCE_SUM/2).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H_COUNT/2 + VALENCE_SUM/2).

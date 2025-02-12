@@ -1,0 +1,71 @@
+>$ cat smiles.lp | ngo --input-predicate="molecular_formula/2, element/3" --output-predicate="branching/2, symbol/2, multi_bond/2, cycle_start/2, cycle_end/2" > smiles.ngo.lp
+
+INFO:ngo.unused:Replaced free_bonds/2 with free_bonds/1.
+INFO:ngo.symmetry:Replace atleast2 in #false :- cycle_end(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2.
+INFO:ngo.symmetry:Replace atleast2 in #false :- depth(I,D1); depth(I,D2); D1 < D2.
+INFO:ngo.symmetry:Replace atleast2 in #false :- size(I,S1); size(I,S2); S1 < S2.
+INFO:ngo.minmax_aggregates:Cannot translate -:169:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.minmax_aggregates:Cannot translate -:173:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H/2 + N/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(-H + N, 2).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 + (Mod(MAIN_CHAIN_LEN + 1, 2))/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 - Mod(MAIN_CHAIN_LEN + 1, 2)/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(MAIN_CHAIN_LEN, 2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(ATOM_COUNT/2 - Mod(ATOM_COUNT, 2)/2).
+INFO:root:Split rule postset_bonds(I,((M1+M2)+1)) :- branching(I,3); parent(I,0,I1); parent(I,1,I2); parent(I,2,I3); I1 < I2; I2 < I3; multi_bond(I1,M1); multi_bond(I2,M2); not multi_bond(I3,_). with new predicate __aux_1/2
+INFO:root:Split rule postset_bonds(I,((1+M2)+M3)) :- branching(I,3); parent(I,0,I1); parent(I,1,I2); parent(I,2,I3); I1 < I2; I2 < I3; not multi_bond(I1,_); multi_bond(I2,M2); multi_bond(I3,M3). with new predicate __aux_2/2
+INFO:root:Split rule postset_bonds(I,((M1+M2)+M3)) :- branching(I,3); parent(I,0,I1); parent(I,1,I2); parent(I,2,I3); I1 < I2; I2 < I3; multi_bond(I1,M1); multi_bond(I2,M2); multi_bond(I3,M3). with new predicate __aux_3/3
+INFO:root:Split rule 1 <= { parent(I,CHAIN,((SUM+DEPTH)..MAX_CHILD)) } <= 1 :- parent(I,(CHAIN-1),SUM); depth(SUM,DEPTH); size(I,PARENT_SIZE); branching(I,BRANCHING); BRANCHING > CHAIN; MAX_CHILD = #min { ATOM_COUNT: non_hydrogen_atom_count(ATOM_COUNT); (((I+PARENT_SIZE)-BRANCHING)+CHAIN) }; MAX_CHILD >= (SUM+DEPTH). with new predicate __aux_4/4
+INFO:root:Split rule size(POS,((I+PARENT_SIZE)-POS)) :- parent(I,CHAIN,POS); branching(I,(CHAIN+1)); size(I,PARENT_SIZE); POS <= (I+PARENT_SIZE). with new predicate __aux_5/2
+INFO:root:Split rule path(I1,I2,((1+I2)-I)) :- parent(I1,CHAIN,I); CHAIN > 0; (I1,CHAIN) != (1,1); (I1+1) < I; chain(I,I2); I < I2; max_len(MAX_LEN); (I2-I) < MAX_LEN; not num_cycles(0). with new predicate __aux_6/2
+INFO:root:Split rule path(I1,I2,(1+LEN)) :- parent(I1,CHAIN,I); CHAIN > 0; (I1,CHAIN) != (1,1); (I1+1) < I; path(I,I2,LEN); I < I2; LEN >= (I2-I); max_len(MAX_LEN); LEN < MAX_LEN; not num_cycles(0). with new predicate __aux_7/2
+INFO:root:Split rule cycle(CYCLE,(I+1),I',L1,L2) :- chain(I,I'); I < I'; (I'-I) <= MAX_LEN; max_len(MAX_LEN); path(I',I1,L1); (I'+1) < I1; L1 <= MAX_LEN; path(I,I2,L2); (I+1) < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_8/4
+INFO:root:Split rule cycle(CYCLE,(1+I1),I2,0,0) :- chain(I1,I2); max_len(MAX_LEN); cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); 0 > (I1+(-1*I2)); 0 >= ((I2+(-1*I1))+(-1*MAX_LEN)). with new predicate __aux_9/2
+INFO:root:Split rule cycle(CYCLE,I',I',L1,L2) :- parent(1,1,I'); 1 < I'; max_len(MAX_LEN); path(I',I1,L1); (I'+1) < I1; L1 <= MAX_LEN; path(1,I2,L2); 2 < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_10/3
+INFO:root:Split rule cycle(CYCLE,I'',I',L1,L2) :- parent(1,1,I''); 1 < I''; chain(I'',I'); I'' < I'; (I'-I'') <= MAX_LEN; max_len(MAX_LEN); path(I',I1,L1); (I'+1) < I1; L1 <= MAX_LEN; path(1,I2,L2); 2 < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_11/4
+INFO:root:Split rule cycle(CYCLE,I1,I1,0,L2) :- parent(1,1,I1); 1 < I1; max_len(MAX_LEN); path(1,I2,L2); 2 < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_12/2
+INFO:root:Split rule cycle(CYCLE,I'',I1,0,L2) :- parent(1,1,I''); 1 < I''; chain(I'',I1); I'' < I1; (I1-I'') <= MAX_LEN; max_len(MAX_LEN); path(1,I2,L2); 2 < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_13/3
+INFO:root:Split rule cycle(CYCLE,I'',I',L2,0) :- parent(1,1,I''); 1 < I''; chain(I'',I'); I'' < I'; (I'-I'') <= MAX_LEN; max_len(MAX_LEN); path(I',I2,L2); 2 < I2; L2 <= MAX_LEN; cycle_start(1,CYCLE); cycle_end(I2,CYCLE); 1 < I2. with new predicate __aux_14/3
+INFO:root:Split rule cycle(CYCLE,I'',I2,0,0) :- parent(1,1,I''); 1 < I''; chain(I'',I2); I'' < I2; (I2-I'') <= MAX_LEN; max_len(MAX_LEN); cycle_start(1,CYCLE); cycle_end(I2,CYCLE); 1 < I2. with new predicate __aux_15/2
+INFO:root:Split rule cross_cycle(CYCLE,I,I',L1,L2) :- chain(1,I); 1 < I; (I-1) <= MAX_LEN; max_len(MAX_LEN); path(I,I1,L1); (I+1) < I1; L1 <= MAX_LEN; parent(1,1,I''); I1 < I''; chain(I'',I'); I'' < I'; (I'-I'') < MAX_LEN; (((1+I')-I'')+L2) < I''; (I+L1) < I''; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_16/4
+INFO:root:Split rule cross_cycle(CYCLE,I,I',L1,L2) :- chain(1,I); 1 < I; (I-1) <= MAX_LEN; max_len(MAX_LEN); path(I,I1,L1); (I+1) < I1; L1 <= MAX_LEN; parent(1,1,I'); I1 < I'; (1+L2) < I'; (I+L1) < I'; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_17/4
+INFO:root:Split rule cross_cycle(CYCLE,I1,I',0,L2) :- chain(1,I1); 1 < I1; (I1-1) <= MAX_LEN; max_len(MAX_LEN); parent(1,1,I''); I1 < I''; chain(I'',I'); I'' < I'; (I'-I'') < MAX_LEN; (((1+I')-I'')+L2) < I''; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_18/3
+INFO:root:Split rule cross_cycle(CYCLE,I1,I',0,L2) :- chain(1,I1); 1 < I1; (I1-1) <= MAX_LEN; max_len(MAX_LEN); parent(1,1,I'); I1 < I'; (1+L2) < I'; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_19/3
+INFO:root:Split rule cross_cycle(CYCLE,I,I2,L1,0) :- chain(1,I); 1 < I; (I-1) <= MAX_LEN; max_len(MAX_LEN); path(I,I1,L1); (I+1) < I1; L1 <= MAX_LEN; parent(1,1,I2); I1 < I2; 1 < I2; (I+L1) < I2; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_20/3
+INFO:root:Split rule cross_cycle(CYCLE,I1,I2,0,0) :- chain(1,I1); max_len(MAX_LEN); parent(1,1,I''); chain(I'',I2); cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); 0 > (1+(-1*I1)); 0 > (I1+(-1*I'')); 0 > (I''+(-1*I2)); 0 > ((1+I2)+(-2*I'')); 0 > ((I2+(-1*I''))+(-1*MAX_LEN)); 0 >= ((-1+I1)+(-1*MAX_LEN)). with new predicate __aux_21/2
+INFO:root:Split rule cross_cycle(CYCLE,I1,I2,0,0) :- chain(1,I1); 1 < I1; (I1-1) <= MAX_LEN; max_len(MAX_LEN); parent(1,1,I2); I1 < I2; 1 < I2; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE). with new predicate __aux_22/2
+INFO:ngo.minmax_aggregates:Cannot translate -:169:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.minmax_aggregates:Cannot translate -:173:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H/2 + N/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(-H + N, 2).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 + (Mod(MAIN_CHAIN_LEN + 1, 2))/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 - Mod(MAIN_CHAIN_LEN + 1, 2)/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(MAIN_CHAIN_LEN, 2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(ATOM_COUNT/2 - Mod(ATOM_COUNT, 2)/2).
+INFO:root:Split rule path(I1,I2,((1+I2)-I)) :- parent(I1,CHAIN,I); CHAIN > 0; (I1,CHAIN) != (1,1); (I1+1) < I; __aux_6(I,I2). with new predicate __aux_3/2
+INFO:root:Split rule __aux_11(CYCLE,I',L1,L2) :- path(I',I1,L1); (I'+1) < I1; path(1,I2,L2); 2 < I2; cycle_start(I1,CYCLE); cycle_end(I2,CYCLE); I1 < I2. with new predicate __aux_5/3
+INFO:root:Split rule cross_cycle(CYCLE,I,I',L1,L2) :- (I-1) <= MAX_LEN; max_len(MAX_LEN); L1 <= MAX_LEN; chain(I'',I'); I'' < I'; (I'-I'') < MAX_LEN; (((1+I')-I'')+L2) < I''; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_end(I2,CYCLE); __aux_16(CYCLE,I,I'',L1). with new predicate __aux_6/4
+INFO:root:Split rule cross_cycle(CYCLE,I,I',L1,L2) :- (I-1) <= MAX_LEN; max_len(MAX_LEN); L1 <= MAX_LEN; (1+L2) < I'; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_end(I2,CYCLE); __aux_17(CYCLE,I,I',L1). with new predicate __aux_7/4
+INFO:root:Split rule __aux_22(I1,I2) :- chain(1,I1); 1 < I1; (I1-1) <= MAX_LEN; max_len(MAX_LEN); parent(1,1,I2); I1 < I2; 1 < I2. with new predicate __aux_8/1
+INFO:ngo.minmax_aggregates:Cannot translate -:169:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.minmax_aggregates:Cannot translate -:173:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H/2 + N/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(-H + N, 2).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 + (Mod(MAIN_CHAIN_LEN + 1, 2))/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 - Mod(MAIN_CHAIN_LEN + 1, 2)/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(MAIN_CHAIN_LEN, 2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(ATOM_COUNT/2 - Mod(ATOM_COUNT, 2)/2).
+INFO:root:Split rule __aux_6(CYCLE,I',I'',L2) :- chain(I'',I'); I'' < I'; (((1+I')-I'')+L2) < I''; path(I',I2,L2); (I'+1) < I2; cycle_end(I2,CYCLE). with new predicate __aux_1/3
+INFO:root:Split rule __aux_7(CYCLE,I',L2,MAX_LEN) :- max_len(MAX_LEN); (1+L2) < I'; path(I',I2,L2); (I'+1) < I2; L2 <= MAX_LEN; cycle_end(I2,CYCLE). with new predicate __aux_2/3
+INFO:ngo.minmax_aggregates:Cannot translate -:169:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.minmax_aggregates:Cannot translate -:173:41 as multiple elements inside min/max aggregate are not yet supported. See #9.
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(-H/2 + N/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(-H + N, 2).
+INFO:ngo.math_simplification:Can't simplify string operation "H"
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 + (Mod(MAIN_CHAIN_LEN + 1, 2))/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(MAIN_CHAIN_LEN/2 - Mod(MAIN_CHAIN_LEN + 1, 2)/2 - 1/2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: Mod(MAIN_CHAIN_LEN, 2).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(ATOM_COUNT/2 - Mod(ATOM_COUNT, 2)/2).

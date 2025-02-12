@@ -1,0 +1,4 @@
+INFO:ngo.cleanup:Remove node(N) from rule, as it is superseeded by type(N,E).
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(C*VC/2 - H_COUNT/2 + N*VN/2 + O*VO/2).
+INFO:root:Split rule tmp_edge_count(I1,I2,(PRE+C)) :- tmp_edge_count(I1,(I2-1),PRE); edge(I1,I2,C); I1 < I2; size(S); I2 <= S. with new predicate __aux_1/3
+INFO:ngo.math_simplification:Unable to simplfiy because of: floor(C*VC/2 - H_COUNT/2 + N*VN/2 + O*VO/2).

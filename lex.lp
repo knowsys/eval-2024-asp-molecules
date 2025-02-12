@@ -11,5 +11,4 @@ sat(I, K, J) :-
     edge(I, K, N), edge(J, K, M), N <= M.
 
 :- type(I, T), type(J, T), type(K, T), 
-   edge(I, K), node(J), J > I, not sat(I, K, J), J - I != 2, K != J.
-
+   edge(I, K), J > I, not sat(I, K, J), J - I != 2, K != J.

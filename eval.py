@@ -19,6 +19,7 @@ from statistics import median
 PROG_NAIVE = environ.get('PROG_NAIVE', "alternative/naive.lp")
 PROG_CANONICAL = environ.get('PROG_CANONICAL', "alternative/symmetry.lp")
 PROG_SMILES = environ.get('PROG_SMILES_EVAL', "smiles_eval.lp")
+PROG_NAIVE_SBASS = environ.get('PROG_NAIVE_SBASS', "naive-SBASS.lp")
 
 if not isfile(PROG_SMILES):
     call(['bash', './prepare-asp-programs.sh'])
@@ -134,6 +135,46 @@ measure_smiles = lambda c, h, o, n: measure_clingo(f"{PROG_SMILES}", get_params_
 measure_ground_prog_size_naive = lambda c, h, o, n: measure_gringo(PROG_NAIVE, get_params_str(c, h, o, n))
 measure_ground_prog_size_canonical = lambda c, h, o, n: measure_gringo(f"{PROG_NAIVE} {PROG_CANONICAL}", get_params_str(c, h, o, n))
 measure_ground_prog_size_smiles = lambda c, h, o, n: measure_gringo(f"{PROG_SMILES}", get_params_str(c, h, o, n))
+
+
+def measure_sbass(carbons: int, hydrogens: int, oxygens: int, nitrogens: int) -> Union[Result, None]:
+    params_str = get_params_str(carbons, hydrogens, oxygens, nitrogens)
+
+    try:
+        output = run((cmd := ["bash", "-O", "expand_aliases", "-c", f"[ -f .bash_aliases ] && source .bash_aliases\n \
+                    gringo {PROG_NAIVE_SBASS} {params_str} -o smodels \
+                    | tee 1> >(wc -l) \
+                        >(sbass --stats 2> \
+                                >(grep -oP '=.*|^[\d.]+$' \
+                                    | grep -oP '[0-9]+(\.[0-9]*)?' >&2) \
+                                | tee 1> >(wc -l) \
+                                    >(clasp 0 --project=show --quiet=2,0,2 -t {num_threads}) \
+                        ) 2>&1 \
+                    | grep -oP ':.*|^\d+$' 2>&1 \
+                    | grep -oP '[0-9]+(\.[0-9]*)?'"]), capture_output=True, text=True, timeout=timeout)
+        numbers1 = output.stdout.splitlines()
+        numbers2 = output.stderr.splitlines()
+        print_cmd(cmd, numbers1, numbers2)
+
+        ground_prog_size = to_num(numbers1, 0, int)
+        num_models = to_num(numbers1, 2, int)
+        runtime = to_num(numbers1, 4, float)
+        solving_time = to_num(numbers1, 5, float)
+        first_model_time = to_num(numbers1, 7, float)
+        unsat_time = to_num(numbers1, 8, float)
+        total_cpu_time = to_num(numbers1, 9, float)
+        grounding_time = total_cpu_time - solving_time - first_model_time - unsat_time
+
+        breakid_runtime = to_num(numbers2, -1, float)
+        breakid_ground_prog_size = to_num(numbers1, 1, int) - ground_prog_size
+        breakid_num_symmetry_generators = to_num(numbers2, 2, int)
+        breakid_symmetry_breaking_clauses = to_num(numbers2, -3, int)
+
+        return Result(ground_prog_size, num_models, runtime, solving_time, first_model_time, unsat_time, grounding_time, total_cpu_time,
+            breakid_runtime, breakid_ground_prog_size, breakid_num_symmetry_generators, None, breakid_symmetry_breaking_clauses)
+
+    except TimeoutExpired:
+        return None
 
 
 def measure_breakid(carbons: int, hydrogens: int, oxygens: int, nitrogens: int) -> Union[Result, None]:
@@ -360,7 +401,7 @@ if __name__ == "__main__":
     parser.add_argument('--render-diagrams', '-r', action='store_true',
                         help='create diagrams from the results (default: no)')
     parser.add_argument('--try-recover', '-t', metavar='FILE',
-                        help='Try to revover from outout of previous run')
+                        help='Try to recover from output of previous run')
     eval_group = parser.add_argument_group('Evaluation parameters')
     eval_group.add_argument('--num_threads', default=num_threads, type=int,
                             help=f'Number of solver threads to use via Clingo option, (default: -t {num_threads})')
@@ -421,8 +462,8 @@ if __name__ == "__main__":
             series_key = str((cycles, oxygens))
             print(f"===;{series_key}")
             run_data = result_set.data[series_key] if series_key in result_set.data else dict()
-            for name, (func, func_ground_prog_size) in zip(["Naive", "Canonical", "BreakID", "Smiles", "Molgen"], \
-                                                           [(measure_naive, measure_ground_prog_size_naive), (measure_canonical, measure_ground_prog_size_canonical), (measure_breakid, None), (measure_smiles, measure_ground_prog_size_smiles), (measure_molgen, None)]):
+            for name, (func, func_ground_prog_size) in zip(["Naive", "Canonical", "BreakID", "Smiles", "Molgen", "SBASS"], \
+                                                           [(measure_naive, measure_ground_prog_size_naive), (measure_canonical, measure_ground_prog_size_canonical), (measure_breakid, None), (measure_smiles, measure_ground_prog_size_smiles), (measure_molgen, None), (measure_sbass, None)]):
                 print(f"{GREEN}~~~ {name} ~~~{C_END}", file=stderr)
                 print(f"---;{name}")
                 run_data[name] = evaluate(func, cycles, oxygens, max_carbons=carbons_limit, repetitions=repetition_count, results=run_data[name] if name in run_data else dict())
@@ -453,7 +494,7 @@ if __name__ == "__main__":
                                                                 #[["num_models"], ["grounding_time", "first_model_time", "solving_time", "unsat_time", "breakid_runtime"], ["ground_prog_size", "breakid_ground_prog_size"]], \
                                                                 #[[], ["Grounding", "First model", "Solving", "Unsat", "BreakID run"], ["", "BreakID SBCs"]]):
                                                                 [["num_models"], ["grounding_time", "solving_time", "breakid_runtime"], ["ground_prog_size", "breakid_ground_prog_size"]], \
-                                                                [[], [("Solving", ''), ("Grounding", 'XXXXX'), ("BreakID run", '.....')], [("", ''), ("BreakID SBCs", '.....')]]):
+                                                                [[], [("Solving", ''), ("Grounding", 'XXXXX'), ("BreakID run", '.....')], [("", ''), ("SBASS / BreakID SBCs", '.....')]]):
                 def process(lst):
                     median_list = [median(l) for l in lst if None not in l]
                     if len(median_list) == 0:
@@ -480,3 +521,41 @@ if __name__ == "__main__":
                     print(pp.pformat(values), file=stderr)
 
                 diagram(series_name, title, dependent_name, values, stack_labels)
+
+if False: #__name__ == "__main__":
+    for cycles in [0,1]:
+        oxygens = 1
+        print(f"===;{str((cycles, oxygens))}")
+        f_num_models = open(f"results/performance_cycles={cycles}_oxygens={oxygens}_num_models.csv", "r")
+        f_runtime = open(f"results/performance_cycles={cycles}_oxygens={oxygens}_runtime.csv", "r")
+
+        lines_num_models = [l[:-1].split(',') for l in f_num_models.readlines()]
+        lines_runtime = [l[:-1].split(',') for l in f_runtime.readlines()]
+        max_carbons = int(lines_num_models[-1][0])
+        repetitions = repetition_count
+
+        lines_num_models[0] += [f'sbass_{i}' for i in range(1,repetitions+1)]
+        lines_runtime[0] += [f'sbass_{i}' for i in range(1,repetitions+1)]
+
+        _DEBUG = True
+
+        done = False
+        for carbons in range(1, max_carbons+1):
+            print(f"--- carbons={carbons} ---", file=stderr)
+            hydrogens = 2*carbons+2-2*cycles
+            key = str((carbons, hydrogens, oxygens))
+            for k in range(repetitions):
+                result = None if done else measure_sbass(carbons, hydrogens, oxygens, 0)
+                if result is not None:
+                    print(f"{key};{result.to_json()}")
+                    lines_num_models[carbons].append(result.num_models)
+                    lines_runtime[carbons].append(result.runtime)
+                else:
+                    if not done:
+                        print(f"{key};None")
+                        done = True
+                    lines_num_models[carbons].append(None)
+                    lines_runtime[carbons].append(None)
+
+        open(f"results/new_perperformance_cycles={cycles}_oxygens={oxygens}_num_models.csv", "w").write('\n'.join([','.join([str(v) for v in l]) for l in lines_num_models]))
+        open(f"results/new_perperformance_cycles={cycles}_oxygens={oxygens}_runtime.csv", "w").write('\n'.join([','.join([str(v) for v in l]) for l in lines_runtime]))

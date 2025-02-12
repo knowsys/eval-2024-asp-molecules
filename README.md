@@ -79,11 +79,23 @@ clingo 0 smiles.lp smiles-to-edge.lp smiles-check.lp <($GENMOL to-factbase -f C3
 See `$GENMOL --help` for a full list of supported options.
 
 For the performance and the symmetry-breaking evaluation,
-the automated symmetry-breaking tool __BreakID__ and the commercial
+the automated symmetry-breaking tools __SBASS__ and __BreakID__ and the commercial
 mass spectrometry tool __Molgen__ are needed:
 
 ```bash
-curl -O https://bitbucket.org/krr/breakid/downloads/BreakID-2.5
+curl -LO https://github.com/prosysscience/Symmetry_Breaking_with_ILP/raw/refs/heads/optimization/src/SBASS/sbass
+chmod +x sbass
+# If working on NixOS, patch the SBASS binary:
+nix shell nixpkgs#patchelf
+patchelf \
+    --set-interpreter /nix/store/1zy01hjzwvvia6h9dq5xar88v77fgh9x-glibc-2.38-44/lib/ld-linux-x86-64.so.2 \
+    --set-rpath /nix/store/v27dxnsw0cb7f4l1i3s44knc7y9sw688-zlib-1.3/lib/ \
+    sbass
+exit
+
+curl -LO https://bitbucket.org/krr/breakid/downloads/BreakID-2.5
+chmod +x BreakID-2.5
+
 curl -O https://www.molgen.de/download/molgen50-windows-demo-max-60seconds.zip
 unzip molgen50-windows-demo-max-60seconds.zip
 ```
@@ -146,7 +158,7 @@ The `chemdata-sort.py` script sorts the dataset by atom count.
 ## Performance evaluation
 
 We evaluate the performance of our encoding against a naive graph-based encoding,
-symmetry-breaking via canonical graphs, automated symmetry-breaking using __BreakID__,
+symmetry-breaking via canonical graphs, automated symmetry-breaking using __SBASS__ and __BreakID__,
 and the pre-existing commercial tool __Molgen__,
 w.r.t. ground program size, total runtime, and number of models.
 
@@ -162,18 +174,18 @@ This will produce a `results.json` data file as well as several diagrams for eac
 * `diagrams/diagram_cycles=<c>-oxygens=<o>_total-runtime_log.pdf`
 
 You can terminate it with Ctrl+C at any time and continue by re-running the command.
-This picks up your intermediate results from the recovery file `sb-data.csv`.
+This picks up your intermediate results from the recovery file `data.csv`.
 
 ```bash
 python eval.py -d -t data.csv -r 1>> data.csv
 ```
 
-See ``python eval.py --help` for further options.
+See `python eval.py --help` for further options.
 
 ## Symmetry-breaking evaluation
 
 We compare the number of models our encoding,
-as well as the naive encoding with symmetry-breaking via canonical graphs and with __BreakID__,
+as well as the naive encoding with symmetry-breaking via canonical graphs and with __SBASS__ and __BreakID__,
 finds against the number of structures reported by __Molgen__,
 for real-world sum formulae collected from Wikidata (see `chemdata-sort.csv`).
 
@@ -185,4 +197,4 @@ This picks up your intermediate results from the recovery file `sb-data.csv`.
 python eval-sb.py -d -t sb-data.csv -r 1>> sb-data.csv
 ```
 
-See ``python eval-sb.py --help` for further options.
+See `python eval-sb.py --help` for further options.

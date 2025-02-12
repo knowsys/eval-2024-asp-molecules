@@ -1,0 +1,574 @@
+Starting ILASP...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 1                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C2H2N0O1_1_iso0_neg (a total of 29590 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C2H2N0O1_1_iso0_neg', 'id_C2H2N0O1_4_iso2_neg', 'id_C2H3N1O0_3_iso1_neg', 'id_C2H3N1O0_6_iso3_neg', 'id_C2H3N1O0_8_iso4_neg', 'id_C2H3N1O1_12_iso9_neg', 'id_C2H3N1O1_14_iso11_neg', 'id_C2H3N1O1_15_iso12_neg', 'id_C2H3N1O1_23_iso19_neg', 'id_C2H3N1O1_24_iso20_neg', 'id_C2H3N1O1_27_iso2_neg', 'id_C2H3N1O1_28_iso0_neg', 'id_C2H3N1O1_29_iso3_neg', 'id_C2H3N1O1_34_iso22_neg', 'id_C2H3N1O1_36_iso13_neg', 'id_C2H3N1O1_49_iso23_neg', 'id_C2H3N1O1_50_iso7_neg', 'id_C2H3N1O1_5_iso1_neg', 'id_C2H3N1O1_9_iso5_neg', 'id_C2H4N0O1_2_iso1_neg', 'id_C2H4N0O1_5_iso2_neg', 'id_C2H5N1O0_3_iso2_neg', 'id_C2H5N1O0_7_iso3_neg', 'id_C2H5N1O1_12_iso10_neg', 'id_C2H5N1O1_20_iso17_neg', 'id_C2H5N1O1_21_iso18_neg', 'id_C2H5N1O1_22_iso0_neg', 'id_C2H5N1O1_23_iso4_neg', 'id_C2H5N1O1_24_iso2_neg', 'id_C2H5N1O1_25_iso1_neg', 'id_C2H5N1O1_29_iso20_neg', 'id_C2H5N1O1_30_iso5_neg', 'id_C2H5N1O1_31_iso6_neg', 'id_C2H5N1O1_41_iso9_neg', 'id_C2H5N1O1_5_iso3_neg', 'id_C2H6N0O1_1_iso0_neg', 'id_C2H7N1O0_1_iso0_neg', 'id_C2H7N1O1_11_iso1_neg', 'id_C2H7N1O1_5_iso0_neg', 'id_C2H7N1O1_8_iso6_neg'] 
+%% Found hypothesis: [2] 1 
+%%  :- same(V1,V2,V1,V3). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 2                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C2H2N0O1_2_iso0_pos (a total of 864 counterexamples found) 
+%% Found hypothesis: [215] 2 
+%%  :- same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 3                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C2H3N1O0_2_iso0_neg (a total of 1259 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C2H3N1O0_2_iso0_neg', 'id_C2H3N1O1_20_iso16_neg', 'id_C2H3N1O1_38_iso10_neg'] 
+%% Found hypothesis: [241] 2 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 4                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C2H2N0O1_3_iso1_pos (a total of 1234 counterexamples found) 
+%% Found hypothesis: [215] 302 
+%%  :- same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 5                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C2H3N1O1_11_iso8_pos (a total of 1256 counterexamples found) 
+%% Found hypothesis: [366] 303 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 6                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C2H3N1O1_25_iso4_neg (a total of 2167 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C2H3N1O1_25_iso4_neg', 'id_C2H3N1O1_26_iso6_neg', 'id_C2H3N1O1_48_iso24_neg', 'id_C2H5N1O0_4_iso1_neg', 'id_C2H5N1O1_19_iso16_neg', 'id_C2H5N1O1_32_iso7_neg'] 
+%% Found hypothesis: [67, 1752] 305 
+%%  :- same(V1,V2,V1,V3); not edge(V1,V3). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 7                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C2H3N1O1_40_iso24_pos (a total of 815 counterexamples found) 
+%% Found hypothesis: [366] 903 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 8                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H4N0O0_11_iso2_neg (a total of 2161 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H4N0O0_11_iso2_neg', 'id_C3H4N0O1_17_iso6_neg', 'id_C3H4N0O1_1_iso0_neg', 'id_C3H4N0O1_3_iso2_neg', 'id_C3H4N0O1_49_iso10_neg', 'id_C3H4N0O1_4_iso3_neg', 'id_C3H4N0O1_62_iso9_neg', 'id_C3H4N0O1_63_iso4_neg', 'id_C3H5N1O0_1_iso0_neg', 'id_C3H5N1O0_31_iso14_neg', 'id_C3H5N1O0_4_iso2_neg', 'id_C3H5N1O0_6_iso4_neg', 'id_C3H5N1O0_75_iso13_neg', 'id_C3H5N1O0_78_iso11_neg', 'id_C3H5N1O0_80_iso7_neg', 'id_C3H5N1O1_100_iso61_neg', 'id_C3H5N1O1_101_iso62_neg', 'id_C3H5N1O1_104_iso7_neg', 'id_C3H5N1O1_106_iso8_neg', 'id_C3H5N1O1_108_iso64_neg', 'id_C3H5N1O1_109_iso65_neg', 'id_C3H5N1O1_149_iso77_neg', 'id_C3H5N1O1_158_iso80_neg', 'id_C3H5N1O1_163_iso79_neg', 'id_C3H5N1O1_165_iso81_neg', 'id_C3H5N1O1_167_iso83_neg', 'id_C3H5N1O1_218_iso94_neg', 'id_C3H5N1O1_224_iso99_neg', 'id_C3H5N1O1_230_iso112_neg', 'id_C3H5N1O1_232_iso113_neg', 'id_C3H5N1O1_246_iso95_neg', 'id_C3H5N1O1_247_iso109_neg', 'id_C3H5N1O1_250_iso100_neg', 'id_C3H5N1O1_465_iso35_neg', 'id_C3H5N1O1_484_iso33_neg', 'id_C3H5N1O1_490_iso31_neg', 'id_C3H5N1O1_511_iso139_neg', 'id_C3H5N1O1_537_iso140_neg', 'id_C3H5N1O1_65_iso28_neg', 'id_C3H5N1O1_736_iso26_neg', 'id_C3H5N1O1_73_iso22_neg', 'id_C3H5N1O1_743_iso71_neg', 'id_C3H5N1O1_74_iso20_neg', 'id_C3H5N1O1_750_iso73_neg', 'id_C3H5N1O1_754_iso14_neg', 'id_C3H5N1O1_758_iso15_neg', 'id_C3H5N1O1_75_iso21_neg', 'id_C3H5N1O1_760_iso9_neg', 'id_C3H5N1O1_774_iso90_neg', 'id_C3H5N1O1_779_iso27_neg', 'id_C3H5N1O1_785_iso25_neg', 'id_C3H5N1O1_798_iso86_neg', 'id_C3H5N1O1_803_iso88_neg', 'id_C3H5N1O1_807_iso91_neg', 'id_C3H5N1O1_810_iso89_neg', 'id_C3H5N1O1_813_iso6_neg', 'id_C3H5N1O1_818_iso5_neg', 'id_C3H5N1O1_823_iso16_neg', 'id_C3H5N1O1_824_iso0_neg', 'id_C3H5N1O1_834_iso1_neg', 'id_C3H5N1O1_856_iso97_neg', 'id_C3H5N1O1_864_iso98_neg', 'id_C3H6N0O0_6_iso1_neg', 'id_C3H6N0O1_1_iso0_neg', 'id_C3H6N0O1_29_iso2_neg', 'id_C3H6N0O1_8_iso1_neg', 'id_C3H7N1O0_19_iso2_neg', 'id_C3H7N1O0_2_iso1_neg', 'id_C3H7N1O0_50_iso3_neg', 'id_C3H7N1O1_397_iso0_neg', 'id_C3H7N1O1_421_iso7_neg', 'id_C3H7N1O1_427_iso13_neg', 'id_C3H7N1O1_444_iso3_neg', 'id_C3H7N1O1_44_iso33_neg', 'id_C3H7N1O1_46_iso34_neg', 'id_C3H7N1O1_49_iso35_neg', 'id_C3H7N1O1_52_iso14_neg', 'id_C3H7N1O1_53_iso4_neg', 'id_C3H7N1O1_56_iso5_neg', 'id_C3H7N1O1_70_iso36_neg', 'id_C3H7N1O1_87_iso46_neg', 'id_C3H7N1O1_88_iso47_neg', 'id_C3H7N1O1_91_iso48_neg'] 
+%% Found hypothesis: [4, 1752] 904 
+%%  :- same(V1,V2,V2,V3). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 9                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C3H4N0O0_1_iso0_pos (a total of 789 counterexamples found) 
+%% Found hypothesis: [60, 1752] 905 
+%%  :- same(V1,V2,V2,V3); not edge(V2,V3). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 10                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H4N0O0_3_iso0_neg (a total of 780 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H4N0O0_3_iso0_neg', 'id_C3H4N0O0_6_iso0_neg'] 
+%% Found hypothesis: [211, 1752] 1105 
+%%  :- same(V1,V2,V2,V3); not edge(V3,V2). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 11                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C3H4N0O0_5_iso1_pos (a total of 778 counterexamples found) 
+%% Found hypothesis: [366] 9403 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 12                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H4N0O1_27_iso5_neg (a total of 2076 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H4N0O1_27_iso5_neg', 'id_C3H4N0O1_28_iso5_neg', 'id_C3H5N1O0_47_iso9_neg', 'id_C3H5N1O0_54_iso9_neg', 'id_C3H5N1O1_315_iso96_neg', 'id_C3H5N1O1_319_iso82_neg', 'id_C3H5N1O1_321_iso93_neg', 'id_C3H5N1O1_331_iso93_neg', 'id_C3H5N1O1_334_iso82_neg', 'id_C3H5N1O1_335_iso96_neg'] 
+%% Found hypothesis: [366] 10403 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 13                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H4N0O1_37_iso8_neg (a total of 2066 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H4N0O1_37_iso8_neg', 'id_C3H4N0O1_53_iso8_neg', 'id_C3H5N1O0_56_iso12_neg', 'id_C3H5N1O0_81_iso12_neg', 'id_C3H5N1O1_376_iso56_neg', 'id_C3H5N1O1_382_iso59_neg', 'id_C3H5N1O1_387_iso56_neg', 'id_C3H5N1O1_398_iso55_neg', 'id_C3H5N1O1_634_iso59_neg', 'id_C3H5N1O1_668_iso55_neg'] 
+%% Found hypothesis: [366] 11403 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 14                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H4N0O1_51_iso7_neg (a total of 2056 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H4N0O1_51_iso7_neg', 'id_C3H5N1O0_22_iso1_neg', 'id_C3H5N1O0_38_iso16_neg', 'id_C3H5N1O0_39_iso3_neg', 'id_C3H5N1O1_112_iso29_neg', 'id_C3H5N1O1_124_iso19_neg', 'id_C3H5N1O1_130_iso24_neg', 'id_C3H5N1O1_131_iso68_neg', 'id_C3H5N1O1_132_iso69_neg', 'id_C3H5N1O1_133_iso70_neg', 'id_C3H5N1O1_150_iso78_neg', 'id_C3H5N1O1_159_iso10_neg', 'id_C3H5N1O1_170_iso84_neg', 'id_C3H5N1O1_171_iso85_neg', 'id_C3H5N1O1_173_iso87_neg', 'id_C3H5N1O1_179_iso38_neg', 'id_C3H5N1O1_183_iso39_neg', 'id_C3H5N1O1_219_iso106_neg', 'id_C3H5N1O1_222_iso3_neg', 'id_C3H5N1O1_223_iso108_neg', 'id_C3H5N1O1_229_iso111_neg', 'id_C3H5N1O1_231_iso104_neg', 'id_C3H5N1O1_245_iso107_neg', 'id_C3H5N1O1_30_iso11_neg', 'id_C3H5N1O1_32_iso23_neg', 'id_C3H5N1O1_426_iso30_neg', 'id_C3H5N1O1_434_iso18_neg', 'id_C3H5N1O1_437_iso42_neg', 'id_C3H5N1O1_439_iso17_neg', 'id_C3H5N1O1_440_iso40_neg', 'id_C3H5N1O1_443_iso41_neg', 'id_C3H5N1O1_450_iso36_neg', 'id_C3H5N1O1_464_iso32_neg', 'id_C3H5N1O1_489_iso37_neg', 'id_C3H5N1O1_495_iso34_neg', 'id_C3H5N1O1_500_iso92_neg', 'id_C3H5N1O1_509_iso141_neg', 'id_C3H5N1O1_518_iso129_neg', 'id_C3H5N1O1_857_iso116_neg', 'id_C3H5N1O1_859_iso147_neg', 'id_C3H5N1O1_865_iso119_neg', 'id_C3H6N0O1_37_iso5_neg', 'id_C3H7N1O0_14_iso5_neg', 'id_C3H7N1O0_15_iso8_neg', 'id_C3H7N1O0_9_iso0_neg', 'id_C3H7N1O1_105_iso53_neg', 'id_C3H7N1O1_106_iso54_neg', 'id_C3H7N1O1_109_iso56_neg', 'id_C3H7N1O1_112_iso59_neg', 'id_C3H7N1O1_113_iso50_neg', 'id_C3H7N1O1_117_iso60_neg', 'id_C3H7N1O1_121_iso62_neg', 'id_C3H7N1O1_132_iso55_neg', 'id_C3H7N1O1_134_iso64_neg', 'id_C3H7N1O1_266_iso18_neg', 'id_C3H7N1O1_267_iso15_neg', 'id_C3H7N1O1_268_iso16_neg', 'id_C3H7N1O1_270_iso19_neg', 'id_C3H7N1O1_271_iso17_neg', 'id_C3H7N1O1_279_iso75_neg', 'id_C3H7N1O1_41_iso9_neg', 'id_C3H7N1O1_460_iso79_neg', 'id_C3H7N1O1_47_iso12_neg', 'id_C3H7N1O1_54_iso10_neg', 'id_C3H7N1O1_66_iso6_neg', 'id_C3H7N1O1_67_iso11_neg', 'id_C3H7N1O1_68_iso1_neg', 'id_C3H7N1O1_72_iso38_neg', 'id_C3H7N1O1_73_iso39_neg', 'id_C3H7N1O1_76_iso41_neg', 'id_C3H7N1O1_77_iso42_neg', 'id_C3H7N1O1_81_iso8_neg', 'id_C3H7N1O1_92_iso49_neg', 'id_C3H7N1O1_94_iso2_neg', 'id_C3H8N0O1_12_iso2_neg', 'id_C3H9N1O0_3_iso2_neg', 'id_C3H9N1O1_11_iso0_neg', 'id_C3H9N1O1_12_iso1_neg', 'id_C3H9N1O1_13_iso2_neg', 'id_C3H9N1O1_15_iso9_neg', 'id_C3H9N1O1_16_iso10_neg', 'id_C3H9N1O1_20_iso12_neg', 'id_C3H9N1O1_22_iso14_neg', 'id_C3H9N1O1_23_iso15_neg', 'id_C3H9N1O1_25_iso16_neg'] 
+%% Found hypothesis: [203, 1752] 11405 
+%%  :- same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 15                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H5N1O0_70_iso8_neg (a total of 526 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H5N1O0_70_iso8_neg', 'id_C3H5N1O1_717_iso105_neg', 'id_C3H5N1O1_724_iso114_neg', 'id_C3H5N1O1_728_iso117_neg'] 
+%% Found hypothesis: [203, 1752] 11805 
+%%  :- same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 16                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H5N1O1_212_iso54_neg (a total of 522 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H5N1O1_212_iso54_neg', 'id_C3H5N1O1_235_iso47_neg'] 
+%% Found hypothesis: [778, 1751] 11806 
+%%  :- same(V1,V2,V1,V3); not edge(V3,V2); not edge(V1,V3). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 17                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C2H3N1O1_45_iso25_pos (a total of 758 counterexamples found) 
+%% Found hypothesis: [59, 206, 1752] 11807 
+%%  :- same(V1,V2,V2,V3); not edge(V1,V3). 
+%%  :- same(V1,V2,V2,V3); not edge(V1,V2). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 18                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C3H4N0O1_21_iso7_pos (a total of 570 counterexamples found) 
+%% Found hypothesis: [203, 1752] 12005 
+%%  :- same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 19                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H5N1O1_252_iso58_neg (a total of 520 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H5N1O1_252_iso58_neg', 'id_C3H5N1O1_256_iso60_neg', 'id_C3H5N1O1_288_iso60_neg', 'id_C3H5N1O1_658_iso58_neg'] 
+%% Found hypothesis: [203, 1752] 12405 
+%%  :- same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 20                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C3H7N1O1_254_iso20_pos (a total of 516 counterexamples found) 
+%% Found hypothesis: [366, 455] 12406 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 21                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C3H7N1O1_101_iso21_neg (a total of 689 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C3H7N1O1_101_iso21_neg', 'id_C3H7N1O1_135_iso20_neg'] 
+%% Found hypothesis: [455, 1752] 12606 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V2,V3); same(V1,V2,V1,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 22                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H10N0O1_30_iso5_neg (a total of 687 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H10N0O1_30_iso5_neg', 'id_C4H10N0O1_31_iso4_neg', 'id_C4H11N1O0_42_iso3_neg', 'id_C4H11N1O0_76_iso1_neg', 'id_C4H11N1O1_1013_iso32_neg', 'id_C4H11N1O1_1061_iso14_neg', 'id_C4H11N1O1_1062_iso6_neg', 'id_C4H11N1O1_1063_iso1_neg', 'id_C4H11N1O1_140_iso2_neg', 'id_C4H11N1O1_141_iso35_neg', 'id_C4H11N1O1_142_iso19_neg', 'id_C4H11N1O1_156_iso12_neg', 'id_C4H11N1O1_195_iso31_neg', 'id_C4H11N1O1_242_iso15_neg', 'id_C4H11N1O1_379_iso10_neg', 'id_C4H11N1O1_574_iso9_neg', 'id_C4H6N0O0_116_iso5_neg', 'id_C4H6N0O0_119_iso5_neg', 'id_C4H6N0O0_128_iso5_neg', 'id_C4H6N0O0_129_iso3_neg', 'id_C4H6N0O0_14_iso3_neg', 'id_C4H6N0O0_1_iso0_neg', 'id_C4H6N0O0_6_iso2_neg', 'id_C4H6N0O0_8_iso1_neg', 'id_C4H6N0O0_9_iso1_neg', 'id_C4H6N0O1_1009_iso5_neg', 'id_C4H6N0O1_1012_iso0_neg', 'id_C4H6N0O1_1024_iso41_neg', 'id_C4H6N0O1_1045_iso40_neg', 'id_C4H6N0O1_1048_iso32_neg', 'id_C4H6N0O1_1059_iso41_neg', 'id_C4H6N0O1_1062_iso46_neg', 'id_C4H6N0O1_1075_iso1_neg', 'id_C4H6N0O1_1105_iso46_neg', 'id_C4H6N0O1_1109_iso29_neg', 'id_C4H6N0O1_127_iso9_neg', 'id_C4H6N0O1_136_iso8_neg', 'id_C4H6N0O1_161_iso20_neg', 'id_C4H6N0O1_164_iso10_neg', 'id_C4H6N0O1_165_iso12_neg', 'id_C4H6N0O1_166_iso11_neg', 'id_C4H6N0O1_190_iso41_neg', 'id_C4H6N0O1_195_iso40_neg', 'id_C4H6N0O1_202_iso7_neg', 'id_C4H6N0O1_203_iso38_neg', 'id_C4H6N0O1_205_iso44_neg', 'id_C4H6N0O1_208_iso37_neg', 'id_C4H6N0O1_211_iso19_neg', 'id_C4H6N0O1_212_iso18_neg', 'id_C4H6N0O1_213_iso6_neg', 'id_C4H6N0O1_216_iso14_neg', 'id_C4H6N0O1_224_iso2_neg', 'id_C4H6N0O1_225_iso4_neg', 'id_C4H6N0O1_267_iso38_neg', 'id_C4H6N0O1_273_iso42_neg', 'id_C4H6N0O1_284_iso32_neg', 'id_C4H6N0O1_288_iso5_neg', 'id_C4H6N0O1_291_iso0_neg', 'id_C4H6N0O1_308_iso40_neg', 'id_C4H6N0O1_310_iso44_neg', 'id_C4H6N0O1_315_iso46_neg', 'id_C4H6N0O1_579_iso2_neg', 'id_C4H6N0O1_581_iso17_neg', 'id_C4H6N0O1_583_iso16_neg', 'id_C4H6N0O1_630_iso12_neg', 'id_C4H6N0O1_637_iso4_neg', 'id_C4H6N0O1_653_iso1_neg', 'id_C4H6N0O1_683_iso29_neg', 'id_C4H6N0O1_705_iso32_neg', 'id_C4H6N0O1_710_iso32_neg', 'id_C4H6N0O1_711_iso41_neg', 'id_C4H6N0O1_712_iso41_neg', 'id_C4H6N0O1_82_iso16_neg', 'id_C4H6N0O1_83_iso16_neg', 'id_C4H6N0O1_84_iso17_neg', 'id_C4H6N0O1_85_iso17_neg', 'id_C4H6N0O1_929_iso20_neg', 'id_C4H6N0O1_931_iso11_neg', 'id_C4H6N0O1_933_iso10_neg', 'id_C4H6N0O1_934_iso32_neg', 'id_C4H6N0O1_940_iso38_neg', 'id_C4H6N0O1_941_iso32_neg', 'id_C4H6N0O1_954_iso44_neg', 'id_C4H6N0O1_966_iso7_neg', 'id_C4H6N0O1_972_iso18_neg', 'id_C4H6N0O1_973_iso41_neg', 'id_C4H6N0O1_974_iso19_neg', 'id_C4H6N0O1_975_iso41_neg', 'id_C4H6N0O1_976_iso6_neg', 'id_C4H6N0O1_977_iso32_neg', 'id_C4H6N0O1_978_iso14_neg', 'id_C4H7N1O0_1019_iso54_neg', 'id_C4H7N1O0_1059_iso63_neg', 'id_C4H7N1O0_1107_iso2_neg', 'id_C4H7N1O0_1110_iso19_neg', 'id_C4H7N1O0_1140_iso11_neg', 'id_C4H7N1O0_1143_iso66_neg', 'id_C4H7N1O0_1240_iso22_neg', 'id_C4H7N1O0_1255_iso38_neg', 'id_C4H7N1O0_1260_iso17_neg', 'id_C4H7N1O0_1261_iso21_neg', 'id_C4H7N1O0_1304_iso39_neg', 'id_C4H7N1O0_1305_iso73_neg', 'id_C4H7N1O0_1306_iso22_neg', 'id_C4H7N1O0_1308_iso20_neg', 'id_C4H7N1O0_1313_iso44_neg', 'id_C4H7N1O0_1316_iso43_neg', 'id_C4H7N1O0_1317_iso26_neg', 'id_C4H7N1O0_1318_iso25_neg', 'id_C4H7N1O0_1321_iso13_neg', 'id_C4H7N1O0_1378_iso21_neg', 'id_C4H7N1O0_1384_iso38_neg', 'id_C4H7N1O0_1386_iso40_neg', 'id_C4H7N1O0_1388_iso16_neg', 'id_C4H7N1O0_1390_iso17_neg', 'id_C4H7N1O0_141_iso19_neg', 'id_C4H7N1O0_1431_iso43_neg', 'id_C4H7N1O0_1434_iso35_neg', 'id_C4H7N1O0_1442_iso42_neg', 'id_C4H7N1O0_1448_iso37_neg', 'id_C4H7N1O0_144_iso16_neg', 'id_C4H7N1O0_1450_iso26_neg', 'id_C4H7N1O0_1455_iso44_neg', 'id_C4H7N1O0_1457_iso25_neg', 'id_C4H7N1O0_1462_iso31_neg', 'id_C4H7N1O0_1470_iso32_neg', 'id_C4H7N1O0_1471_iso13_neg', 'id_C4H7N1O0_1473_iso7_neg', 'id_C4H7N1O0_1474_iso14_neg', 'id_C4H7N1O0_151_iso12_neg', 'id_C4H7N1O0_152_iso12_neg', 'id_C4H7N1O0_153_iso13_neg', 'id_C4H7N1O0_158_iso9_neg', 'id_C4H7N1O0_159_iso29_neg', 'id_C4H7N1O0_160_iso6_neg', 'id_C4H7N1O0_161_iso27_neg', 'id_C4H7N1O0_162_iso8_neg', 'id_C4H7N1O0_163_iso10_neg', 'id_C4H7N1O0_164_iso30_neg', 'id_C4H7N1O0_1670_iso24_neg', 'id_C4H7N1O0_199_iso1_neg', 'id_C4H7N1O0_223_iso3_neg', 'id_C4H7N1O0_246_iso8_neg', 'id_C4H7N1O0_259_iso7_neg', 'id_C4H7N1O0_264_iso0_neg', 'id_C4H7N1O0_288_iso22_neg', 'id_C4H7N1O0_296_iso30_neg', 'id_C4H7N1O0_308_iso6_neg', 'id_C4H7N1O0_311_iso3_neg', 'id_C4H7N1O0_321_iso21_neg', 'id_C4H7N1O0_325_iso22_neg', 'id_C4H7N1O0_350_iso29_neg', 'id_C4H7N1O0_361_iso1_neg', 'id_C4H7N1O0_383_iso60_neg', 'id_C4H7N1O0_385_iso19_neg', 'id_C4H7N1O0_393_iso38_neg', 'id_C4H7N1O0_406_iso22_neg', 'id_C4H7N1O0_409_iso41_neg', 'id_C4H7N1O0_427_iso21_neg', 'id_C4H7N1O0_430_iso16_neg', 'id_C4H7N1O0_434_iso17_neg', 'id_C4H7N1O0_443_iso18_neg', 'id_C4H7N1O0_444_iso21_neg', 'id_C4H7N1O0_447_iso46_neg', 'id_C4H7N1O0_450_iso22_neg', 'id_C4H7N1O0_805_iso21_neg', 'id_C4H7N1O0_811_iso0_neg', 'id_C4H7N1O0_844_iso21_neg', 'id_C4H7N1O0_847_iso24_neg', 'id_C4H7N1O0_859_iso22_neg', 'id_C4H7N1O0_899_iso12_neg', 'id_C4H7N1O0_991_iso54_neg', 'id_C4H7N1O0_993_iso2_neg', 'id_C4H7N1O0_996_iso23_neg', 'id_C4H8N0O0_2_iso0_neg', 'id_C4H8N0O0_58_iso1_neg', 'id_C4H8N0O0_7_iso1_neg', 'id_C4H8N0O1_105_iso16_neg', 'id_C4H8N0O1_107_iso15_neg', 'id_C4H8N0O1_122_iso23_neg', 'id_C4H8N0O1_124_iso13_neg', 'id_C4H8N0O1_141_iso15_neg', 'id_C4H8N0O1_296_iso21_neg', 'id_C4H8N0O1_305_iso15_neg', 'id_C4H8N0O1_307_iso16_neg', 'id_C4H8N0O1_411_iso7_neg', 'id_C4H8N0O1_457_iso6_neg', 'id_C4H8N0O1_470_iso3_neg', 'id_C4H8N0O1_473_iso0_neg', 'id_C4H8N0O1_49_iso1_neg', 'id_C4H8N0O1_51_iso5_neg', 'id_C4H8N0O1_53_iso4_neg', 'id_C4H8N0O1_74_iso6_neg', 'id_C4H8N0O1_80_iso7_neg', 'id_C4H8N0O1_81_iso3_neg', 'id_C4H8N0O1_82_iso0_neg', 'id_C4H8N0O1_90_iso16_neg', 'id_C4H8N0O1_94_iso20_neg', 'id_C4H9N1O0_114_iso7_neg', 'id_C4H9N1O0_118_iso0_neg', 'id_C4H9N1O0_120_iso3_neg', 'id_C4H9N1O0_170_iso12_neg', 'id_C4H9N1O0_182_iso8_neg', 'id_C4H9N1O0_183_iso26_neg', 'id_C4H9N1O0_193_iso12_neg', 'id_C4H9N1O0_196_iso11_neg', 'id_C4H9N1O0_392_iso10_neg', 'id_C4H9N1O0_487_iso11_neg', 'id_C4H9N1O0_506_iso19_neg', 'id_C4H9N1O0_519_iso6_neg', 'id_C4H9N1O0_59_iso12_neg', 'id_C4H9N1O0_612_iso16_neg', 'id_C4H9N1O0_620_iso6_neg', 'id_C4H9N1O0_625_iso15_neg', 'id_C4H9N1O0_629_iso2_neg', 'id_C4H9N1O0_62_iso3_neg', 'id_C4H9N1O0_630_iso11_neg', 'id_C4H9N1O0_64_iso7_neg', 'id_C4H9N1O0_65_iso0_neg'] 
+%% Found hypothesis: [366, 455, 569] 12609 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V3,V2); same(V1,V2,V2,V3); not edge(V3,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 23                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C4H10N0O0_1_iso0_pos (a total of 365 counterexamples found) 
+%% Found hypothesis: [366, 455] 34506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 24                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H11N1O1_494_iso40_neg (a total of 468 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H11N1O1_494_iso40_neg', 'id_C4H11N1O1_530_iso16_neg', 'id_C4H11N1O1_545_iso41_neg', 'id_C4H11N1O1_672_iso8_neg', 'id_C4H11N1O1_714_iso25_neg', 'id_C4H6N0O1_1035_iso3_neg', 'id_C4H7N1O0_1084_iso5_neg', 'id_C4H7N1O0_36_iso4_neg', 'id_C4H7N1O0_44_iso28_neg', 'id_C4H8N0O1_410_iso2_neg', 'id_C4H9N1O0_12_iso9_neg', 'id_C4H9N1O0_9_iso1_neg'] 
+%% Found hypothesis: [366, 455, 584] 34509 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%  :- edge(V3,V2); same(V1,V2,V2,V3); not edge(V1,V2). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 25                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found positive counterexample: id_C4H10N0O1_88_iso6_pos (a total of 354 counterexamples found) 
+%% Found hypothesis: [366, 455] 35706 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 26                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_108_iso7_neg (a total of 456 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_108_iso7_neg', 'id_C4H6N0O1_834_iso31_neg', 'id_C4H7N1O0_154_iso52_neg'] 
+%% Found hypothesis: [366, 455] 36006 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 27                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_17_iso4_neg (a total of 453 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_17_iso4_neg', 'id_C4H6N0O1_183_iso39_neg', 'id_C4H6N0O1_229_iso35_neg', 'id_C4H6N0O1_231_iso43_neg', 'id_C4H7N1O0_1303_iso49_neg', 'id_C4H7N1O0_403_iso68_neg', 'id_C4H7N1O0_424_iso48_neg'] 
+%% Found hypothesis: [366, 455] 36706 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 28                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_45_iso7_neg (a total of 446 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_45_iso7_neg', 'id_C4H6N0O1_214_iso31_neg', 'id_C4H6N0O1_215_iso45_neg', 'id_C4H7N1O0_277_iso53_neg', 'id_C4H7N1O0_358_iso52_neg'] 
+%% Found hypothesis: [366, 455] 37206 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 29                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_61_iso6_neg (a total of 441 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_61_iso6_neg', 'id_C4H6N0O0_93_iso6_neg', 'id_C4H6N0O1_318_iso24_neg', 'id_C4H6N0O1_324_iso24_neg', 'id_C4H6N0O1_373_iso25_neg', 'id_C4H6N0O1_377_iso25_neg', 'id_C4H6N0O1_452_iso26_neg', 'id_C4H6N0O1_472_iso27_neg', 'id_C4H6N0O1_495_iso28_neg', 'id_C4H6N0O1_879_iso26_neg', 'id_C4H6N0O1_883_iso27_neg', 'id_C4H6N0O1_888_iso28_neg', 'id_C4H7N1O0_1212_iso57_neg', 'id_C4H7N1O0_1213_iso51_neg', 'id_C4H7N1O0_1221_iso58_neg', 'id_C4H7N1O0_1410_iso58_neg', 'id_C4H7N1O0_1417_iso51_neg', 'id_C4H7N1O0_1419_iso57_neg', 'id_C4H7N1O0_499_iso56_neg', 'id_C4H7N1O0_501_iso55_neg', 'id_C4H7N1O0_689_iso55_neg', 'id_C4H7N1O0_744_iso56_neg'] 
+%% Found hypothesis: [366, 455] 39406 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 30                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_67_iso4_neg (a total of 419 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_67_iso4_neg', 'id_C4H6N0O1_361_iso39_neg', 'id_C4H6N0O1_391_iso35_neg', 'id_C4H6N0O1_392_iso43_neg', 'id_C4H7N1O0_1176_iso49_neg', 'id_C4H7N1O0_617_iso48_neg', 'id_C4H7N1O0_621_iso68_neg'] 
+%% Found hypothesis: [366, 455] 40106 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 31                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O0_79_iso4_neg (a total of 412 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O0_79_iso4_neg', 'id_C4H6N0O1_360_iso39_neg', 'id_C4H6N0O1_396_iso43_neg', 'id_C4H6N0O1_397_iso35_neg', 'id_C4H7N1O0_1403_iso49_neg', 'id_C4H7N1O0_481_iso68_neg', 'id_C4H7N1O0_485_iso48_neg'] 
+%% Found hypothesis: [366, 455] 40806 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 32                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_1097_iso23_neg (a total of 405 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_1097_iso23_neg', 'id_C4H6N0O1_81_iso22_neg', 'id_C4H7N1O0_1105_iso47_neg', 'id_C4H7N1O0_155_iso50_neg', 'id_C4H8N0O0_18_iso2_neg', 'id_C4H8N0O1_30_iso9_neg', 'id_C4H9N1O0_63_iso22_neg'] 
+%% Found hypothesis: [366, 455] 41506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 33                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_1103_iso30_neg (a total of 398 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_1103_iso30_neg', 'id_C4H7N1O0_1018_iso64_neg', 'id_C4H8N0O0_11_iso2_neg', 'id_C4H8N0O1_67_iso8_neg', 'id_C4H9N1O0_57_iso21_neg'] 
+%% Found hypothesis: [366, 455] 42006 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 34                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_139_iso21_neg (a total of 393 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_139_iso21_neg', 'id_C4H6N0O1_143_iso22_neg', 'id_C4H6N0O1_642_iso23_neg', 'id_C4H7N1O0_1279_iso72_neg', 'id_C4H7N1O0_130_iso50_neg', 'id_C4H7N1O0_930_iso47_neg', 'id_C4H8N0O1_68_iso9_neg', 'id_C4H9N1O0_58_iso22_neg'] 
+%% Found hypothesis: [366, 455] 42806 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 35                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_649_iso30_neg (a total of 385 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_649_iso30_neg', 'id_C4H7N1O0_952_iso64_neg', 'id_C4H8N0O1_29_iso8_neg', 'id_C4H9N1O0_61_iso21_neg'] 
+%% Found hypothesis: [366, 455] 43206 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 36                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_680_iso54_neg (a total of 381 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_680_iso54_neg', 'id_C4H6N0O1_995_iso51_neg', 'id_C4H7N1O0_421_iso82_neg', 'id_C4H7N1O0_979_iso78_neg', 'id_C4H8N0O1_480_iso25_neg', 'id_C4H9N1O0_178_iso34_neg'] 
+%% Found hypothesis: [366, 455] 43806 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 37                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_78_iso21_neg (a total of 375 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_78_iso21_neg', 'id_C4H7N1O0_1465_iso72_neg'] 
+%% Found hypothesis: [366, 455] 44006 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 38                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H6N0O1_830_iso45_neg (a total of 373 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H6N0O1_830_iso45_neg', 'id_C4H7N1O0_157_iso53_neg'] 
+%% Found hypothesis: [366, 455] 44206 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 39                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H7N1O0_1656_iso45_neg (a total of 371 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H7N1O0_1656_iso45_neg', 'id_C4H7N1O0_73_iso34_neg', 'id_C4H9N1O0_490_iso17_neg'] 
+%% Found hypothesis: [366, 455] 44506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 40                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C4H7N1O0_945_iso59_neg (a total of 368 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C4H7N1O0_945_iso59_neg'] 
+%% Found hypothesis: [366, 455] 44606 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 41                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O0_156_iso3_neg (a total of 367 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O0_156_iso3_neg', 'id_C5H10N0O0_157_iso0_neg', 'id_C5H10N0O0_206_iso3_neg', 'id_C5H10N0O0_207_iso4_neg', 'id_C5H10N0O0_355_iso1_neg', 'id_C5H10N0O0_371_iso2_neg', 'id_C5H10N0O0_410_iso2_neg', 'id_C5H10N0O0_61_iso4_neg', 'id_C5H10N0O0_80_iso2_neg', 'id_C5H10N0O0_81_iso0_neg', 'id_C5H10N0O1_1009_iso64_neg', 'id_C5H10N0O1_1178_iso17_neg', 'id_C5H10N0O1_1233_iso40_neg', 'id_C5H10N0O1_1251_iso54_neg', 'id_C5H10N0O1_1252_iso71_neg', 'id_C5H10N0O1_1253_iso38_neg', 'id_C5H10N0O1_1255_iso26_neg', 'id_C5H10N0O1_1268_iso9_neg', 'id_C5H10N0O1_1271_iso29_neg', 'id_C5H10N0O1_1534_iso21_neg', 'id_C5H10N0O1_1535_iso40_neg', 'id_C5H10N0O1_1598_iso29_neg', 'id_C5H10N0O1_1868_iso13_neg', 'id_C5H10N0O1_1945_iso57_neg', 'id_C5H10N0O1_1946_iso46_neg', 'id_C5H10N0O1_1967_iso40_neg', 'id_C5H10N0O1_2013_iso13_neg', 'id_C5H10N0O1_2035_iso33_neg', 'id_C5H10N0O1_2037_iso42_neg', 'id_C5H10N0O1_217_iso46_neg', 'id_C5H10N0O1_218_iso42_neg', 'id_C5H10N0O1_255_iso32_neg', 'id_C5H10N0O1_256_iso42_neg', 'id_C5H10N0O1_2574_iso1_neg', 'id_C5H10N0O1_2682_iso44_neg', 'id_C5H10N0O1_2683_iso50_neg', 'id_C5H10N0O1_2684_iso66_neg', 'id_C5H10N0O1_2685_iso39_neg', 'id_C5H10N0O1_2686_iso18_neg', 'id_C5H10N0O1_2691_iso0_neg', 'id_C5H10N0O1_2701_iso2_neg', 'id_C5H10N0O1_3116_iso11_neg', 'id_C5H10N0O1_3145_iso62_neg', 'id_C5H10N0O1_3179_iso24_neg', 'id_C5H10N0O1_3247_iso24_neg', 'id_C5H10N0O1_3376_iso0_neg', 'id_C5H10N0O1_3384_iso39_neg', 'id_C5H10N0O1_3385_iso18_neg', 'id_C5H10N0O1_3397_iso50_neg', 'id_C5H10N0O1_3399_iso20_neg', 'id_C5H10N0O1_3403_iso8_neg', 'id_C5H10N0O1_3406_iso8_neg', 'id_C5H10N0O1_3432_iso7_neg', 'id_C5H10N0O1_3442_iso20_neg', 'id_C5H10N0O1_3553_iso4_neg', 'id_C5H10N0O1_3593_iso21_neg', 'id_C5H10N0O1_3596_iso10_neg', 'id_C5H10N0O1_3606_iso27_neg', 'id_C5H10N0O1_3623_iso26_neg', 'id_C5H10N0O1_3625_iso13_neg', 'id_C5H10N0O1_3637_iso17_neg', 'id_C5H10N0O1_3638_iso9_neg', 'id_C5H10N0O1_4047_iso7_neg', 'id_C5H10N0O1_6823_iso63_neg', 'id_C5H10N0O1_920_iso2_neg', 'id_C5H10N0O1_922_iso1_neg', 'id_C5H10N0O1_943_iso1_neg', 'id_C5H10N0O1_961_iso26_neg', 'id_C5H10N0O1_974_iso32_neg', 'id_C5H10N0O1_976_iso33_neg', 'id_C5H10N0O1_980_iso17_neg', 'id_C5H12N0O0_45_iso0_neg', 'id_C5H12N0O1_171_iso6_neg', 'id_C5H12N0O1_183_iso3_neg', 'id_C5H12N0O1_184_iso10_neg', 'id_C5H12N0O1_460_iso5_neg', 'id_C5H12N0O1_482_iso0_neg', 'id_C5H12N0O1_659_iso0_neg', 'id_C5H13N1O0_1190_iso7_neg', 'id_C5H13N1O0_1193_iso5_neg', 'id_C5H13N1O0_1197_iso12_neg', 'id_C5H13N1O0_231_iso4_neg', 'id_C5H13N1O0_555_iso0_neg', 'id_C5H13N1O0_621_iso0_neg', 'id_C5H8N0O0_1090_iso10_neg', 'id_C5H8N0O0_1139_iso2_neg', 'id_C5H8N0O0_1246_iso2_neg', 'id_C5H8N0O0_1275_iso5_neg', 'id_C5H8N0O0_1279_iso2_neg', 'id_C5H8N0O0_1281_iso13_neg', 'id_C5H8N0O0_1731_iso12_neg', 'id_C5H8N0O0_183_iso2_neg', 'id_C5H8N0O0_187_iso10_neg', 'id_C5H8N0O0_282_iso1_neg', 'id_C5H8N0O0_339_iso6_neg', 'id_C5H8N0O0_340_iso10_neg', 'id_C5H8N0O0_347_iso10_neg', 'id_C5H8N0O0_357_iso6_neg', 'id_C5H8N0O0_360_iso3_neg', 'id_C5H8N0O0_404_iso7_neg', 'id_C5H8N0O0_406_iso0_neg', 'id_C5H8N0O0_452_iso3_neg', 'id_C5H8N0O0_460_iso10_neg', 'id_C5H8N0O0_503_iso6_neg', 'id_C5H8N0O0_518_iso1_neg', 'id_C5H8N0O0_899_iso4_neg', 'id_C5H8N0O0_920_iso6_neg', 'id_C5H8N0O0_935_iso13_neg', 'id_C5H8N0O0_976_iso10_neg', 'id_C5H8N0O0_991_iso2_neg', 'id_C6H12N0O0_2266_iso4_neg', 'id_C6H12N0O0_2373_iso4_neg', 'id_C6H12N0O0_2464_iso4_neg', 'id_C6H12N0O0_4779_iso2_neg', 'id_C6H12N0O0_4783_iso8_neg', 'id_C6H12N0O0_4803_iso0_neg', 'id_C6H12N0O0_4808_iso1_neg', 'id_C6H12N0O0_5264_iso12_neg', 'id_C6H12N0O0_5620_iso4_neg', 'id_C6H14N0O0_806_iso0_neg'] 
+%% Found hypothesis: [366, 455] 56606 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 42                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O0_182_iso1_neg (a total of 247 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O0_182_iso1_neg', 'id_C5H10N0O0_464_iso3_neg', 'id_C5H10N0O0_467_iso1_neg', 'id_C5H10N0O0_552_iso1_neg', 'id_C5H10N0O0_558_iso3_neg', 'id_C5H10N0O1_4104_iso11_neg', 'id_C5H10N0O1_4115_iso10_neg', 'id_C5H10N0O1_4121_iso4_neg', 'id_C5H10N0O1_4126_iso27_neg', 'id_C5H10N0O1_4470_iso59_neg', 'id_C5H10N0O1_4496_iso59_neg', 'id_C5H10N0O1_4508_iso59_neg', 'id_C5H10N0O1_4514_iso59_neg', 'id_C5H10N0O1_5731_iso62_neg', 'id_C5H10N0O1_5735_iso66_neg', 'id_C5H10N0O1_5738_iso62_neg', 'id_C5H10N0O1_5739_iso66_neg', 'id_C5H10N0O1_5747_iso11_neg', 'id_C5H10N0O1_5748_iso39_neg', 'id_C5H10N0O1_5752_iso50_neg', 'id_C5H10N0O1_5757_iso56_neg', 'id_C5H10N0O1_5760_iso63_neg', 'id_C5H10N0O1_5761_iso7_neg', 'id_C5H10N0O1_5762_iso61_neg', 'id_C5H10N0O1_5775_iso2_neg', 'id_C5H10N0O1_5786_iso27_neg', 'id_C5H10N0O1_5799_iso4_neg', 'id_C5H10N0O1_5805_iso10_neg', 'id_C5H10N0O1_5828_iso18_neg', 'id_C5H10N0O1_5857_iso8_neg', 'id_C5H10N0O1_5865_iso0_neg', 'id_C5H10N0O1_5870_iso24_neg', 'id_C5H10N0O1_5874_iso20_neg', 'id_C5H10N0O1_5988_iso4_neg', 'id_C5H10N0O1_5990_iso36_neg', 'id_C5H10N0O1_6027_iso18_neg', 'id_C5H10N0O1_6222_iso8_neg', 'id_C5H10N0O1_6247_iso0_neg', 'id_C5H10N0O1_6250_iso24_neg', 'id_C5H10N0O1_6254_iso20_neg', 'id_C5H10N0O1_6290_iso11_neg', 'id_C5H10N0O1_6303_iso2_neg', 'id_C5H10N0O1_6306_iso27_neg', 'id_C5H10N0O1_6309_iso10_neg', 'id_C5H10N0O1_6327_iso43_neg', 'id_C5H10N0O1_6378_iso34_neg', 'id_C5H10N0O1_6855_iso63_neg', 'id_C5H12N0O0_88_iso1_neg', 'id_C5H12N0O1_1001_iso5_neg', 'id_C5H12N0O1_921_iso12_neg', 'id_C5H12N0O1_925_iso5_neg', 'id_C5H12N0O1_953_iso0_neg', 'id_C5H13N1O0_114_iso10_neg', 'id_C5H13N1O0_1240_iso5_neg', 'id_C5H13N1O0_244_iso0_neg', 'id_C5H13N1O0_324_iso5_neg', 'id_C5H8N0O0_1324_iso17_neg', 'id_C5H8N0O0_1401_iso5_neg', 'id_C5H8N0O0_1432_iso6_neg', 'id_C5H8N0O0_1433_iso17_neg', 'id_C5H8N0O0_1452_iso13_neg', 'id_C5H8N0O0_1660_iso10_neg', 'id_C5H8N0O0_1675_iso6_neg', 'id_C5H8N0O0_1686_iso4_neg', 'id_C5H8N0O0_1696_iso17_neg', 'id_C5H8N0O0_1715_iso10_neg', 'id_C5H8N0O0_1738_iso17_neg', 'id_C5H8N0O0_1767_iso3_neg', 'id_C5H8N0O0_1789_iso5_neg', 'id_C5H8N0O0_178_iso5_neg', 'id_C5H8N0O0_1790_iso7_neg', 'id_C5H8N0O0_1915_iso3_neg', 'id_C5H8N0O0_193_iso8_neg', 'id_C5H8N0O0_1945_iso4_neg', 'id_C5H8N0O0_318_iso5_neg', 'id_C5H8N0O0_373_iso4_neg', 'id_C5H8N0O0_505_iso8_neg'] 
+%% Found hypothesis: [366, 455] 64306 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 43                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O0_183_iso5_neg (a total of 170 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O0_183_iso5_neg', 'id_C5H10N0O0_58_iso4_neg', 'id_C5H10N0O0_59_iso2_neg', 'id_C5H10N0O0_99_iso4_neg', 'id_C5H10N0O1_1128_iso17_neg', 'id_C5H10N0O1_189_iso12_neg', 'id_C5H10N0O1_1928_iso49_neg', 'id_C5H10N0O1_1937_iso25_neg', 'id_C5H10N0O1_1944_iso45_neg', 'id_C5H10N0O1_1947_iso28_neg', 'id_C5H10N0O1_1957_iso12_neg', 'id_C5H10N0O1_2000_iso21_neg', 'id_C5H10N0O1_2008_iso31_neg', 'id_C5H10N0O1_2038_iso26_neg', 'id_C5H10N0O1_2040_iso47_neg', 'id_C5H10N0O1_204_iso47_neg', 'id_C5H10N0O1_2593_iso19_neg', 'id_C5H10N0O1_2710_iso15_neg', 'id_C5H10N0O1_3184_iso5_neg', 'id_C5H10N0O1_3262_iso19_neg', 'id_C5H10N0O1_3557_iso12_neg', 'id_C5H10N0O1_3563_iso21_neg', 'id_C5H10N0O1_3604_iso12_neg', 'id_C5H10N0O1_3629_iso28_neg', 'id_C5H10N0O1_4069_iso65_neg', 'id_C5H10N0O1_48_iso19_neg', 'id_C5H10N0O1_679_iso6_neg', 'id_C5H10N0O1_698_iso16_neg', 'id_C5H10N0O1_699_iso60_neg', 'id_C5H10N0O1_700_iso53_neg', 'id_C5H10N0O1_71_iso19_neg', 'id_C5H10N0O1_776_iso55_neg', 'id_C5H10N0O1_904_iso1_neg', 'id_C5H10N0O1_928_iso15_neg', 'id_C5H10N0O1_934_iso67_neg', 'id_C5H10N0O1_935_iso5_neg', 'id_C5H10N0O1_991_iso13_neg', 'id_C5H10N0O1_998_iso31_neg', 'id_C5H12N0O1_160_iso1_neg', 'id_C5H12N0O1_163_iso2_neg', 'id_C5H12N0O1_296_iso8_neg', 'id_C5H13N1O0_411_iso3_neg', 'id_C5H13N1O0_67_iso1_neg', 'id_C5H13N1O0_78_iso2_neg', 'id_C5H8N0O0_1053_iso6_neg', 'id_C5H8N0O0_1060_iso0_neg', 'id_C5H8N0O0_1081_iso12_neg', 'id_C5H8N0O0_1123_iso2_neg', 'id_C5H8N0O0_1242_iso0_neg', 'id_C5H8N0O0_1388_iso12_neg', 'id_C5H8N0O0_167_iso10_neg', 'id_C5H8N0O0_331_iso25_neg', 'id_C5H8N0O0_919_iso12_neg', 'id_C6H12N0O0_1621_iso12_neg', 'id_C6H12N0O0_2282_iso20_neg', 'id_C6H12N0O0_2300_iso14_neg', 'id_C6H12N0O0_2313_iso0_neg', 'id_C6H12N0O0_2354_iso20_neg', 'id_C6H12N0O0_2363_iso8_neg', 'id_C6H12N0O0_2371_iso7_neg', 'id_C6H12N0O0_3204_iso22_neg', 'id_C6H12N0O0_363_iso10_neg', 'id_C6H12N0O0_373_iso11_neg', 'id_C6H12N0O0_446_iso1_neg', 'id_C6H12N0O0_44_iso13_neg', 'id_C6H12N0O0_452_iso1_neg', 'id_C6H12N0O0_4743_iso13_neg', 'id_C6H12N0O0_4814_iso11_neg', 'id_C6H12N0O0_491_iso1_neg', 'id_C6H12N0O0_5653_iso2_neg', 'id_C6H14N0O0_330_iso0_neg', 'id_C6H14N0O0_88_iso2_neg'] 
+%% Found hypothesis: [366, 455] 71506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 44                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O0_551_iso7_neg (a total of 98 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O0_551_iso7_neg', 'id_C5H10N0O1_5750_iso23_neg', 'id_C5H8N0O0_1407_iso20_neg', 'id_C5H8N0O0_1435_iso16_neg', 'id_C5H8N0O0_1461_iso11_neg', 'id_C5H8N0O0_1623_iso16_neg', 'id_C5H8N0O0_1678_iso20_neg', 'id_C5H8N0O0_1711_iso11_neg', 'id_C5H8N0O0_186_iso14_neg', 'id_C5H8N0O0_306_iso15_neg', 'id_C6H12N0O0_7606_iso17_neg'] 
+%% Found hypothesis: [366, 455] 72606 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 45                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O1_1096_iso34_neg (a total of 87 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O1_1096_iso34_neg', 'id_C5H10N0O1_2187_iso36_neg', 'id_C5H10N0O1_2705_iso36_neg', 'id_C5H10N0O1_3251_iso34_neg', 'id_C5H10N0O1_3252_iso43_neg', 'id_C5H10N0O1_3313_iso30_neg', 'id_C5H10N0O1_757_iso43_neg', 'id_C5H12N0O1_534_iso4_neg', 'id_C5H13N1O0_584_iso6_neg'] 
+%% Found hypothesis: [366, 455] 73506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 46                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O1_2712_iso35_neg (a total of 78 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O1_2712_iso35_neg', 'id_C5H12N0O1_699_iso7_neg', 'id_C5H13N1O0_627_iso8_neg'] 
+%% Found hypothesis: [366, 455] 73806 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 47                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O1_4898_iso37_neg (a total of 75 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O1_4898_iso37_neg', 'id_C5H8N0O0_1681_iso15_neg'] 
+%% Found hypothesis: [366, 455] 74006 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 48                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O1_5736_iso58_neg (a total of 73 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O1_5736_iso58_neg', 'id_C5H10N0O1_5755_iso48_neg', 'id_C5H10N0O1_5767_iso3_neg', 'id_C5H8N0O0_188_iso16_neg'] 
+%% Found hypothesis: [366, 455] 74406 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 49                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H10N0O1_852_iso22_neg (a total of 69 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H10N0O1_852_iso22_neg', 'id_C5H10N0O1_873_iso14_neg', 'id_C5H8N0O0_1387_iso11_neg', 'id_C5H8N0O0_1776_iso11_neg', 'id_C5H8N0O0_297_iso9_neg', 'id_C5H8N0O0_444_iso16_neg', 'id_C5H8N0O0_504_iso14_neg', 'id_C5H8N0O0_782_iso24_neg', 'id_C5H8N0O0_785_iso9_neg', 'id_C5H8N0O0_793_iso18_neg', 'id_C5H8N0O0_813_iso14_neg', 'id_C5H8N0O0_868_iso18_neg', 'id_C5H8N0O0_875_iso9_neg'] 
+%% Found hypothesis: [366, 455] 75706 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 50                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H8N0O0_1429_iso15_neg (a total of 56 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H8N0O0_1429_iso15_neg', 'id_C5H8N0O0_1712_iso11_neg'] 
+%% Found hypothesis: [366, 455] 75906 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 51                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H8N0O0_294_iso18_neg (a total of 54 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H8N0O0_294_iso18_neg'] 
+%% Found hypothesis: [366, 455] 76006 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 52                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H8N0O0_635_iso21_neg (a total of 53 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H8N0O0_635_iso21_neg'] 
+%% Found hypothesis: [366, 455] 76106 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 53                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C5H8N0O0_835_iso21_neg (a total of 52 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C5H8N0O0_835_iso21_neg', 'id_C6H12N0O0_444_iso9_neg'] 
+%% Found hypothesis: [366, 455] 76306 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 54                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C6H12N0O0_1071_iso7_neg (a total of 50 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C6H12N0O0_1071_iso7_neg', 'id_C6H12N0O0_1086_iso4_neg', 'id_C6H12N0O0_1603_iso20_neg', 'id_C6H12N0O0_1611_iso7_neg', 'id_C6H12N0O0_1638_iso20_neg', 'id_C6H12N0O0_1752_iso6_neg', 'id_C6H12N0O0_1761_iso12_neg', 'id_C6H12N0O0_1777_iso0_neg', 'id_C6H12N0O0_1788_iso2_neg', 'id_C6H12N0O0_1810_iso8_neg', 'id_C6H12N0O0_1820_iso0_neg', 'id_C6H12N0O0_1823_iso2_neg', 'id_C6H12N0O0_3194_iso16_neg', 'id_C6H12N0O0_4775_iso16_neg', 'id_C6H12N0O0_5051_iso16_neg', 'id_C6H12N0O0_5052_iso5_neg', 'id_C6H12N0O0_5053_iso18_neg', 'id_C6H12N0O0_5302_iso20_neg', 'id_C6H12N0O0_5304_iso18_neg', 'id_C6H12N0O0_5311_iso7_neg', 'id_C6H12N0O0_5979_iso4_neg', 'id_C6H12N0O0_6313_iso6_neg', 'id_C6H12N0O0_6315_iso6_neg', 'id_C6H12N0O0_7007_iso4_neg', 'id_C6H12N0O0_7486_iso18_neg', 'id_C6H12N0O0_7489_iso18_neg', 'id_C6H12N0O0_7494_iso5_neg', 'id_C6H12N0O0_7506_iso6_neg', 'id_C6H12N0O0_7514_iso16_neg', 'id_C6H12N0O0_7520_iso18_neg', 'id_C6H12N0O0_7521_iso20_neg', 'id_C6H12N0O0_7605_iso22_neg', 'id_C6H12N0O0_7628_iso18_neg', 'id_C6H12N0O0_7662_iso12_neg', 'id_C6H12N0O0_7712_iso6_neg', 'id_C6H12N0O0_7779_iso6_neg', 'id_C6H14N0O0_1017_iso3_neg', 'id_C6H14N0O0_275_iso4_neg', 'id_C6H14N0O0_280_iso0_neg', 'id_C6H14N0O0_974_iso3_neg'] 
+%% Found hypothesis: [366, 455] 80306 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 55                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C6H12N0O0_1616_iso19_neg (a total of 10 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C6H12N0O0_1616_iso19_neg', 'id_C6H12N0O0_8363_iso17_neg'] 
+%% Found hypothesis: [366, 455] 80506 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 56                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C6H12N0O0_2343_iso17_neg (a total of 8 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C6H12N0O0_2343_iso17_neg', 'id_C6H12N0O0_602_iso21_neg'] 
+%% Found hypothesis: [366, 455] 80706 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 57                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C6H12N0O0_6634_iso19_neg (a total of 6 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C6H12N0O0_6634_iso19_neg'] 
+%% Found hypothesis: [366, 455] 80806 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 58                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+%% Found negative counterexample: id_C6H12N0O0_6844_iso3_neg (a total of 5 counterexamples found) 
+%% Computed constraint. Now propagating to other examples... 
+%% Constraint propagated to: ['id_C6H12N0O0_6844_iso3_neg', 'id_C6H12N0O0_6845_iso8_neg', 'id_C6H12N0O0_6864_iso4_neg', 'id_C6H12N0O0_6936_iso8_neg', 'id_C6H12N0O0_7519_iso22_neg'] 
+%% Found hypothesis: [366, 455] 81306 
+%%  :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2). 
+%%  :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Iteration 59                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Pre-processing                          : 1.604s
+%% Hypothesis Space Generation             : 10.446s
+%% Conflict analysis                       : 9.06s
+%%   - Negative Examples                   : 7.292s
+%%   - Positive Examples                   : 1.768s
+%% Counterexample search                   : 1509.47s
+%%   - CDOEs                               : 0.821s
+%%   - CDPIs                               : 1508.64s
+%% Hypothesis Search                       : 46.045s
+%% Propagation                             : 53.153s
+%%   - CDPIs                               : 53.153s
+%% Total                                   : 1630.2s
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Searching for counterexample... 
+ :- edge(V3,V2); same(V1,V2,V1,V3); not edge(V1,V2).
+ :- edge(V1,V3); same(V1,V2,V2,V3); not edge(V2,V1).
+
