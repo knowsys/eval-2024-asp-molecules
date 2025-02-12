@@ -52,9 +52,9 @@
      inkscape:window-height="698"
      id="namedview3338"
      showgrid="false"
-     inkscape:zoom="0.38653179"
-     inkscape:cx="746.38104"
-     inkscape:cy="432.04726"
+     inkscape:zoom="1.093277"
+     inkscape:cx="1048.2247"
+     inkscape:cy="2.7440438"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
@@ -2968,35 +2968,38 @@
      style="font-size:13.0082px;line-height:1.25">secsec</tspan></text>
 <text
    transform="translate(220.17799,14.481223)"
-   style="font-style:italic;font-variant:normal;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   style="font-style:italic;font-variant:normal;line-height:0%;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic';writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none;font-weight:normal;font-stretch:normal"
    id="text5804"
    y="0"><tspan
      x="0 22.5 67.877998"
      y="0"
      sodipodi:role="line"
      id="tspan5806"
-     style="font-size:18px;line-height:1.25">CHO</tspan></text>
+     style="font-size:18px;line-height:1.25;-inkscape-font-specification:'Times New Roman,  Italic';font-family:'Times New Roman';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal">CHO</tspan></text>
 <text
    transform="translate(233.9724,17.210837)"
    style="font-style:italic;font-variant:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
    id="text5808"><tspan
      x="0"
      y="0"
-     id="tspan5810">n</tspan></text>
+     id="tspan5810"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">n</tspan></text>
 <text
    transform="translate(256.8764,17.210837)"
    style="font-variant:normal;font-weight:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
    id="text5812"><tspan
      x="0"
      y="0"
-     id="tspan5814">2</tspan></text>
+     id="tspan5814"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">2</tspan></text>
 <text
    transform="translate(263.8764,17.210837)"
    style="font-style:italic;font-variant:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
    id="text5816"><tspan
      x="0"
      y="0"
-     id="tspan5818">n</tspan></text>
+     id="tspan5818"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">n</tspan></text>
 <text
    transform="translate(270.8764,17.210837)"
    style="font-variant:normal;font-weight:normal;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -3006,38 +3009,44 @@
      y="0"
      sodipodi:role="line"
      id="tspan5822"
-     style="font-size:14px;line-height:1.25">+2</tspan></text>
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">+2</tspan></text>
 <text
-   transform="translate(741.69845,12.420004)"
    style="font-style:italic;font-variant:normal;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
    id="text5824"
-   y="0"><tspan
-     x="0 22.5 51.389999"
-     y="0"
+   y="14.480832"
+   x="741.69843"><tspan
+     x="741.69843 764.19843 793.08844"
+     y="14.480832"
      sodipodi:role="line"
      id="tspan5826"
-     style="font-size:18px;line-height:1.25">CHO</tspan></text>
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;line-height:1.25;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">CHO</tspan></text>
 <text
-   transform="translate(755.49285,15.149619)"
    style="font-style:italic;font-variant:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   id="text5828"><tspan
-     x="0"
-     y="0"
-     id="tspan5830">n</tspan></text>
+   id="text5828"
+   x="755.49286"
+   y="17.210447"><tspan
+     x="755.49286"
+     y="17.210447"
+     id="tspan5830"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">n</tspan></text>
 <text
-   transform="translate(778.39685,15.149619)"
    style="font-variant:normal;font-weight:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   id="text5832"><tspan
-     x="0"
-     y="0"
-     id="tspan5834">2</tspan></text>
+   id="text5832"
+   x="778.39685"
+   y="17.210447"><tspan
+     x="778.39685"
+     y="17.210447"
+     id="tspan5834"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">2</tspan></text>
 <text
-   transform="translate(785.39685,15.149619)"
    style="font-style:italic;font-variant:normal;font-size:14px;line-height:0%;font-family:'Times New Roman MT Std';-inkscape-font-specification:TimesNewRomanMTStd-Italic;writing-mode:lr-tb;fill:#1f0606;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   id="text5836"><tspan
-     x="0"
-     y="0"
-     id="tspan5838">n</tspan></text>
+   id="text5836"
+   x="785.39685"
+   y="17.210447"><tspan
+     x="785.39685"
+     y="17.210447"
+     id="tspan5838"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">n</tspan></text>
 <g
    id="g33"
    transform="matrix(0.27501724,0,0,0.30396757,207.78498,388.78091)"
