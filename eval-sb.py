@@ -138,6 +138,8 @@ def measure_num_models_canonical(formula: str) -> Union[int, None]:
 
 
 def measure_num_models_sbass(formula: str) -> Union[int, None]:
+    # With the (static) aggregate-free encoding, suitable only for CHNO-formulae:
+    """
     m = re.search("^(?:C(\d*))?(?:H(\d*))?(?:N(\d*))?(?:O(\d*))?$", formula)
     if m is None:
         return -1
@@ -148,6 +150,16 @@ def measure_num_models_sbass(formula: str) -> Union[int, None]:
     try:
         output = run((cmd := ["bash", "-O", "expand_aliases", "-c", f"[ -f .bash_aliases ] && source .bash_aliases\n \
                     gringo {PROG_NAIVE_SBASS} --const c={c} --const h={h} --const n={n} --const o={o} -o smodels \
+                    | sbass \
+                    | clasp 0 --project=show --quiet=2,0,2 -t {num_threads} \
+                    | grep -oP ':.*|^\d+$' \
+                    | grep -oP '[0-9]+(\.[0-9]*)?'"]), capture_output=True, text=True, timeout=timeout)
+    """
+    # With the dynamically generated aggregate-free encoding, not restricting element symbols (for comparability):
+    try:
+        output = run((cmd := ["bash", "-O", "expand_aliases", "-c", f"[ -f .bash_aliases ] && source .bash_aliases\n \
+                    {{ {GENMOL} to-factbase -f {formula}; cat {PROG_NAIVE_SBASS} | sed '1,20d'; }} | python naive-SBASS.py \
+                    | gringo -o smodels \
                     | sbass \
                     | clasp 0 --project=show --quiet=2,0,2 -t {num_threads} \
                     | grep -oP ':.*|^\d+$' \
@@ -454,10 +466,10 @@ if False: #__name__ == "__main__":
             print(f"{line[0]};None")
             line.append(None)
 
-    open("results/new_new_symmetry_breaking.csv", "w").write('\n'.join([','.join([str(v) for v in l]) for l in lines_symmetry_breaking]))
+    open("results/new_symmetry_breaking.csv", "w").write('\n'.join([','.join([str(v) for v in l]) for l in lines_symmetry_breaking]))
 
 if False: #__name__ == "__main__":
-    f_symmetry_breaking = open(f"results/new_new_symmetry_breaking.csv", "r")
+    f_symmetry_breaking = open(f"results/symmetry_breaking.csv", "r")
     lines_symmetry_breaking = [l.strip().split(',') for l in f_symmetry_breaking.readlines()]
 
     result_set = NOMResultSet()
@@ -496,7 +508,7 @@ if False: #__name__ == "__main__":
     diagram("new_number_of_models-comparison", "Number of models", data, ("Molgen", "Our encoding", "Canonical", "BreakID", "SBASS", "Naive"))
 
 if False: #__name__ == "__main__":
-    f_symmetry_breaking = open(f"results/new_new_symmetry_breaking.csv", "r")
+    f_symmetry_breaking = open(f"results/symmetry_breaking.csv", "r")
     lines_symmetry_breaking = [l.strip().split(',') for l in f_symmetry_breaking.readlines()]
 
     #factors_genmol = [0 for _ in range(10000)]
@@ -521,7 +533,7 @@ if False: #__name__ == "__main__":
 
     #ratios_genmol = []
     ratios_sbass = []
-    for i in range(10000):
+    for i in range(1, 10000):
         #ratios_genmol.append(100.0 * factors_genmol[i] / len(lines_symmetry_breaking[1:]))
         ratios_sbass.append(100.0 * factors_sbass[i] / len(lines_symmetry_breaking[1:]))
 
