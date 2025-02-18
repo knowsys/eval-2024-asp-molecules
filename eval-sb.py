@@ -519,17 +519,19 @@ if False: #__name__ == "__main__":
             line[i] = int(v) if v != 'None' else None
 
         #if line[2] is not None:
-        #    factor = line[2] // line[1]
+        #    factor_exact = line[2] / line[1]
+        #    factor = int(factor_exact) + (0 if factor_exact - int(factor_exact) < 0.5 else 1)
         #    for f in range(factor, 10000):
         #        factors_genmol[f] += 1
 
         if line[6] is not None and line[6] != -1:
-            factor = line[6] // line[1]
+            factor_exact = line[6] / line[1]
+            factor = int(factor_exact) + (0 if factor_exact - int(factor_exact) < 0.5 else 1)
             for f in range(factor, 10000):
                 factors_sbass[f] += 1
 
-    #print(factors_genmol)
-    #print(factors_sbass)
+    #print(factors_genmol[:100])
+    #print(factors_sbass[:100])
 
     #ratios_genmol = []
     ratios_sbass = []
@@ -539,7 +541,8 @@ if False: #__name__ == "__main__":
 
     from math import log10
 
-    #print(ratios_genmol)
+    #print(ratios_genmol[:100])
+    #print(ratios_sbass[:100])
 
     # calculate x scale from breakid line in the SVG (line 843)
     #breakid = "m 589.15956,157.42023 h 2.55118 2.35276 2.15433 l 3.85512,-3.34488 4.13858,-2.12599 1.50236,-0.51023 2.0693,-1.89922 0.0283,-8.10709 10.91339,-6.94488 7.73858,-8.10709 6.00945,-6.51967 9.04252,-13.2378 9.60945,-5.89606 7.05827,-6.321265 11.5937,-10.28977 15.05197,-14.8252 9.60945,-11.67874 18.65197,-6.29291 18.65198,-6.63307 24.68976,-3.99685 18.62363,-1.70079 18.65197,-1.04882 24.66142,-0.62362 h 10.91338 l 7.73859,-0.22677 24.66142,-0.70867"
