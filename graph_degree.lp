@@ -1,14 +1,11 @@
-% INPUT: node_count(NODE_COUNT)
-% Enumerate all connected simple graphs with given number of nodes
+% INPUT: nodes_with_deg(DEGREE, COUNT)
+% Enumerate all connected simple graphs fulfilling the degree constraints
+% --> no multi-edges or loops
 
 % ---------------------------------------------
 
-% Select number of nodes with degree values.
-1{ nodes_with_deg(1..NODE_COUNT, 1..NODE_COUNT) }NODE_COUNT :- node_count(NODE_COUNT).
-:- nodes_with_deg(DEGREE, COUNT_1), nodes_with_deg(DEGREE, COUNT_2), COUNT_1<COUNT_2.
-:- node_count(NODE_COUNT), NODE_COUNT != #sum{ COUNT, DEGREE : nodes_with_deg(DEGREE, COUNT) }.
-
-% ---------------------------------------------
+% Determine the total number of nodes and the maximal degree.
+node_count(NODE_COUNT) :- NODE_COUNT = #sum{ COUNT, DEGREE : nodes_with_deg(DEGREE, COUNT) }.
 
 max_degree(MAX_DEGREE) :- MAX_DEGREE = #max{ DEGREE : nodes_with_deg(DEGREE, COUNT) }.
 
