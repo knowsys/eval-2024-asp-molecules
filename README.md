@@ -162,6 +162,14 @@ symmetry-breaking via canonical graphs, automated symmetry-breaking using __SBAS
 and the pre-existing commercial tool __Molgen__,
 w.r.t. ground program size, total runtime, and number of models.
 
+Moreover, clingo allows to specify the search strategy via the `--configuration`
+parameter. For the ASP-based approaches, we tested all available options
+on the second pattern (with a 1 minute timeout)
+and found no significant improvements compared to the default `auto` setting.
+You can use the `./test-clingo-configs.sh` script
+to iterate these options and run this experiment,
+which will produce CSV files in a `results_clingo_config` folder.
+
 To this purpose, sum formulae of the form $C_xH_{2 \cdot x + 2 - 2 \cdot c}O_o$ are considered
 for increasing carbon atom counts.
 Here, $c$ represents the number of cycles or multi-bonds and $o$ the oxygen count in molecules matching the formula.
